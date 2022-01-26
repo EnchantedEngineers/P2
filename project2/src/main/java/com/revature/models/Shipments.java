@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.time.LocalDate;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,28 +24,28 @@ public class Shipments {
 	private int id;
 	
 	@Column(nullable = false)
-	private String ship_date; 
-	
+	private LocalDate ship_date; 
+	 
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "order_id")
-	private Orders order;
+	private CustomerOrder order;
 	
 	@Column
-	private String arrival_date;
+	private LocalDate arrival_date;
 
 	public Shipments() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Shipments(String ship_date, Orders order, String arrival_date) {
+	public Shipments(LocalDate ship_date, CustomerOrder order, LocalDate arrival_date) {
 		super();
 		this.ship_date = ship_date;
 		this.order = order;
 		this.arrival_date = arrival_date;
 	}
 
-	public Shipments(int id, String ship_date, Orders order, String arrival_date) {
+	public Shipments(int id, LocalDate ship_date, CustomerOrder order, LocalDate arrival_date) {
 		super();
 		this.id = id;
 		this.ship_date = ship_date;
@@ -59,27 +61,27 @@ public class Shipments {
 		this.id = id;
 	}
 
-	public String getShip_date() {
+	public LocalDate getShip_date() {
 		return ship_date;
 	}
 
-	public void setShip_date(String ship_date) {
+	public void setShip_date(LocalDate ship_date) {
 		this.ship_date = ship_date;
 	}
 
-	public Orders getOrder() {
+	public CustomerOrder getOrder() {
 		return order;
 	}
 
-	public void setOrder(Orders order) {
+	public void setOrder(CustomerOrder order) {
 		this.order = order;
 	}
 
-	public String getArrival_date() {
+	public LocalDate getArrival_date() {
 		return arrival_date;
 	}
 
-	public void setArrival_date(String arrival_date) {
+	public void setArrival_date(LocalDate arrival_date) {
 		this.arrival_date = arrival_date;
 	}
 
@@ -128,16 +130,5 @@ public class Shipments {
 			return false;
 		return true;
 	}
-
-	
-
-	
-
-
-	
-	
-	
-	
-	
 
 }

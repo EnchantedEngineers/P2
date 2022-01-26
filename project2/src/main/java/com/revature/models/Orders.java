@@ -36,14 +36,14 @@ public class Orders {
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "product_id")
-	private Inventory product;
+	private Product product;
 
 	public Orders() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Orders(int order_quantity, double order_total, String order_date, User user, Inventory product) {
+	public Orders(int order_quantity, double order_total, String order_date, User user, Product product) {
 		super();
 		this.order_quantity = order_quantity;
 		this.order_total = order_total;
@@ -52,7 +52,7 @@ public class Orders {
 		this.product = product;
 	}
 
-	public Orders(int id, int order_quantity, double order_total, String order_date, User user, Inventory product) {
+	public Orders(int id, int order_quantity, double order_total, String order_date, User user, Product product) {
 		super();
 		this.id = id;
 		this.order_quantity = order_quantity;
@@ -102,11 +102,11 @@ public class Orders {
 		this.user = user;
 	}
 
-	public Inventory getProduct() {
+	public Product getProduct() {
 		return product;
 	}
 
-	public void setProduct(Inventory product) {
+	public void setProduct(Product product) {
 		this.product = product;
 	}
 

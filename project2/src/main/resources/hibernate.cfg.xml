@@ -9,7 +9,7 @@
  	
  	<!-- JDBC -->
 		<property name="hibernate.connection.username">postgres</property>
-		<property name="hibernate.connection.password">password</property>
+		<property name="hibernate.connection.password">123</property>
 		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=hibernate2</property>
 		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
 		<!-- Hibernate Properties -->
@@ -30,6 +30,8 @@
 		<mapping class="com.revature.models.Orders"/>
 		<mapping class="com.revature.models.Returns"/>
 		<mapping class="com.revature.models.Shipments"/>
+		<mapping class="com.revature.models.Product"/>
+		<mapping class="com.revature.models.CustomerOrder"/>
  	
  	</session-factory>
  </hibernate-configuration>
