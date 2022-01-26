@@ -15,9 +15,7 @@ public class HibernateUtil {
 		if (ses == null) {
 			ses = sf.openSession();
 		}
-
 		return ses;
-
 	}
 
 	public static void closeSession() {

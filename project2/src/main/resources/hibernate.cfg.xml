@@ -30,6 +30,7 @@
 		<mapping class="com.revature.models.Orders"/>
 		<mapping class="com.revature.models.Returns"/>
 		<mapping class="com.revature.models.Shipments"/>
+		<mapping class="com.revature.models.Cart"/>
  	
  	</session-factory>
  </hibernate-configuration>

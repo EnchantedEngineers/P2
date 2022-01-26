@@ -40,9 +40,15 @@ public class Inventory {
 	@JoinColumn(name = "category_id")
 	public Categories category;
 
+	
+	
 	public Inventory() {
 		super();
-		// TODO Auto-generated constructor stub
+	}
+
+	public Inventory(String product_name) {
+		super();
+		this.product_name = product_name;
 	}
 
 	public Inventory(String product_name, int product_category, double price, int quantity, Categories category) {
@@ -113,12 +119,14 @@ public class Inventory {
 		this.category = category;
 	}
 
+	
 	@Override
 	public String toString() {
 		return "Inventory [id=" + id + ", product_name=" + product_name + ", product_category=" + product_category
 				+ ", price=" + price + ", quantity=" + quantity + ", category=" + category + "]";
 	}
 
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -134,6 +142,7 @@ public class Inventory {
 		return result;
 	}
 
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -163,9 +172,6 @@ public class Inventory {
 			return false;
 		return true;
 	}
-	
-	
-	
 	
 	
 
