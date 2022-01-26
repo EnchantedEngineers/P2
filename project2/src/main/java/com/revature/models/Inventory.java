@@ -24,7 +24,7 @@ public class Inventory{
 	private int available_quantity; 
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "product_id", insertable = false,updatable=false)
+	@JoinColumn(name = "product_id")//, insertable = false,updatable=false)
 	public Product product;
 
 	public Inventory() {
@@ -32,14 +32,16 @@ public class Inventory{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Inventory( int quantity, Product product) {
+	public Inventory( int quantity, Product product)
+	{
 		super();
 		this.available_quantity=quantity;		
 		this.product=product;
 		
 	}
 
-	public Inventory(int id, int quantity, Product product) {
+	public Inventory(int id, int quantity, Product product)
+{
 		super();
 		this.id = id;
 		this.available_quantity=quantity;		
