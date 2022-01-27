@@ -1,31 +1,39 @@
 package com.revature.repositories;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
+import org.hibernate.PropertyValueException;
 import org.hibernate.Session;
 
 import com.revature.models.CustomerOrder;
-import com.revature.models.Shipments;
 import com.revature.models.User;
 import com.revature.models.UserProfile;
 import com.revature.util.HibernateUtil;
 
 public class UserDAO {
 	
-	public void insertUser(User user) {
+	public String insertUser(User user) {
 		
+		try {
 		Session ses = HibernateUtil.getSession(); 
 		
 		ses.save(user); 
 		
 		HibernateUtil.closeSession(); 
+		
+		return "Success";
+		} catch (Exception e) {
+			return "Failed";
+		}
+		
 	}
 	
 	public User getUserByUserName(String username) {
 			
+		try {
 			Session ses = HibernateUtil.getSession(); 
 			//User uu=ses.get(User.class, user_name);
 		Query q=	ses.createQuery("FROM User u WHERE u.username=?0"); 
@@ -34,17 +42,23 @@ public class UserDAO {
 			
 			HibernateUtil.closeSession(); 
 			return u;
+		} catch (NoResultException e) {
+			return null;
 		}
+	}
 	
 	public User getUserById(int id) {
 	
-		
+		try {
 		Session ses = HibernateUtil.getSession(); 
 		
 	User u=	ses.get(User.class,id); 
 		
 		HibernateUtil.closeSession(); 
 		return u;
+		} catch (NoResultException e) {
+			return null;
+		}
 	}
 	
 	public List<User> getAllUsers() {
@@ -59,6 +73,7 @@ public class UserDAO {
 	
 	public UserProfile getUserProfile(String username)
 	{
+		try {
 		 User u=null;
 		
 		
@@ -77,11 +92,14 @@ public class UserDAO {
 	 
 		UserProfile p=new UserProfile(1,u,orders,null);
 		return p;
+		} catch (NullPointerException e) {
+			return null;
+		}
 	}
 	
 	public User login(String username, String password){
 	
-	    //open a Session object
+		try {
 	    Session ses = HibernateUtil.getSession();
 	    
 	    Query q = ses.createQuery("FROM User u WHERE u.username = ?0 and u.password = ?1");
@@ -89,15 +107,13 @@ public class UserDAO {
 	    q.setParameter(0, username);
 	    q.setParameter(1, password);
 	
-	    //SELECT all movies, with HQL instead of session methods, and put the values into a List (this will be one line)
 	    User user = (User) q.getSingleResult();
-	
-	    //close the session
+
 	    HibernateUtil.closeSession();
 	
-	    //return the List of Movies
-	
 	    return user; 
-	
+		} catch(NoResultException e) {
+			return null;
+		}
 	}
 }

@@ -1,6 +1,6 @@
 package com.revature;
 
-import com.revature.controllers.LoginController;
+import com.revature.controllers.UserController;
 import com.revature.models.Address;
 import com.revature.models.Categories;
 import com.revature.models.CustomerOrder;
@@ -33,7 +33,8 @@ public class Launcher {
 		
 		test();
 		
-		LoginController lc = new LoginController();
+		
+		UserController uc = new UserController();
 		
 		Javalin app = Javalin.create(
 				config -> {
@@ -41,7 +42,12 @@ public class Launcher {
 				}
 			).start(3000);
 		
-		app.post("/login", lc.loginHandler);
+		app.get("/user", uc.getAllUsersHandler);
+		app.get("/user/{username}", uc.getUserByUsernameHandler);
+		app.get("/user/id/{id}", uc.getUserByIdHandler);
+		app.get("user/profile/{username}", uc.getUserProfileHandler);
+		app.post("/user/login", uc.loginHandler);
+		app.post("/user/insert", uc.insertHandler);
 
 	//connect();
        //UserDAO uDAO=new UserDAO();

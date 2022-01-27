@@ -21,7 +21,7 @@ public class User {
 	@Column(name = "user_id")
 	private int id; 
 	
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String username; 
 	
 	@Column(nullable = false)
@@ -33,7 +33,7 @@ public class User {
 	@Column
 	private String last_name; 
 	
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String email_address;
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

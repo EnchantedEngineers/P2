@@ -3,17 +3,17 @@ package com.revature.models;
 public class LoginDTO {
 
 	private String username;
-	private String userpassword;
+	private String password;
 	
 	public LoginDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public LoginDTO(String username, String userpassword) {
+	public LoginDTO(String username, String password) {
 		super();
 		this.username = username;
-		this.userpassword = userpassword;
+		this.password = password;
 	}
 
 	public String getUsername() {
@@ -24,12 +24,12 @@ public class LoginDTO {
 		this.username = username;
 	}
 
-	public String getUserpassword() {
-		return userpassword;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setUserpassword(String userpassword) {
-		this.userpassword = userpassword;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	
