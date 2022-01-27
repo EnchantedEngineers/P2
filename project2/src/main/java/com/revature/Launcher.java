@@ -1,5 +1,6 @@
 package com.revature;
 
+import com.revature.controllers.LoginController;
 import com.revature.models.Address;
 import com.revature.models.Categories;
 import com.revature.models.CustomerOrder;
@@ -15,9 +16,13 @@ import com.revature.repositories.ProductDAO;
 import com.revature.repositories.UserDAO;
 import com.revature.util.HibernateUtil;
 
+import io.javalin.Javalin;
+
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.NoResultException;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -25,10 +30,22 @@ import org.hibernate.Session;
 public class Launcher {
 
 	public static void main(String[] args) {
+		
+		test();
+		
+		LoginController lc = new LoginController();
+		
+		Javalin app = Javalin.create(
+				config -> {
+					config.enableCorsForAllOrigins(); // allows the server to process JS requests from anywhere
+				}
+			).start(3000);
+		
+		app.post("/login", lc.loginHandler);
 
 	//connect();
        //UserDAO uDAO=new UserDAO();
-		test();
+//		test();
 		/*UserProfile p=uDAO.getUserProfile("ecross");
 		User u=p.getUser();
 		 System.out.println("welcome  "+ u.getFirst_name() + " "+u.getLast_name());
@@ -45,14 +62,14 @@ public class Launcher {
 		
 	}
 
-	private static void connect() {
-		try (Session ses = HibernateUtil.getSession()) {
-			System.out.println("Connection Successful");
-			} catch (HibernateException e) {
-				System.out.println("Connection Failed!");
-				e.printStackTrace();
-			}
-	}
+//	private static void connect() {
+//		try (Session ses = HibernateUtil.getSession()) {
+//			System.out.println("Connection Successful");
+//			} catch (HibernateException e) {
+//				System.out.println("Connection Failed!");
+//				e.printStackTrace();
+//			}
+//	}
 
 	private static void test() {
 		CustomerOrderDAO coDao=new CustomerOrderDAO();
@@ -60,13 +77,12 @@ public class Launcher {
 		UserDAO uDAO = new UserDAO();
 		AddressDAO aDAO = new AddressDAO(); 
 		CategoryDAO cDAO = new CategoryDAO(); 
-
-		User u1 = new User("ecross", "password", "Eilese", "Cross", "ec@gmail.com");
-		User u2 = new User("ifrah", "password", "Ifrah", "Karamat", "ifrahk@gmail.com");
 		
+		Address a1 = new Address("3707 Jason Dr.", " ", "Chattanooga", "TN", "USA", "37412"); 
+		Address a2 = new Address("15 Seminole", " ", "SugarLand", "TX", "USA", "77498");
 
-		Address a1 = new Address("3707 Jason Dr.", " ", "Chattanooga", "TN", "USA", "37412", u1); 
-		Address a2 = new Address("15 Seminole", " ", "SugarLand", "TX", "USA", "77498", u2);
+		User u1 = new User("ecross", "password", "Eilese", "Cross", "ec@gmail.com", a1);
+		User u2 = new User("ifrah", "password", "Ifrah", "Karamat", "ifrahk@gmail.com", a2);
 		
 		Categories c1 = new Categories("Vegetables"); 
 		Categories c2 = new Categories("Fruit"); 
@@ -76,13 +92,20 @@ public class Launcher {
 		uDAO.insertUser(u1);
 		uDAO.insertUser(u2);
 		
-		aDAO.insertAddress(a1);
-		aDAO.insertAddress(a2);
+//		aDAO.insertAddress(a1);
+//		aDAO.insertAddress(a2);
 		
 		cDAO.insertCategory(c1);
 		cDAO.insertCategory(c2);
 		cDAO.insertCategory(c3);
 		cDAO.insertCategory(c4);
+		
+		try {
+			System.out.println(uDAO.login("ecross", "password1"));
+		} catch (NoResultException e) {
+			System.out.println("Wrong Credentials!");
+		}
+		
 		ProductDAO pDao=new ProductDAO();
 		Product p1=new Product("apple",12,c2);
 		pDao.insertProduct(p1);
