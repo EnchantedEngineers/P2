@@ -30,37 +30,133 @@ public class Orders {
 	@Column(nullable = false)
 	private String order_date; 
 	
+	//Added this column 
+	//Considering adding either a sales table or adding a column for orderstatus column.
+	
+	/*
+	 * @Column(nullable = false) private double order_price;
+	 */
+	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "product_price")
+	private Inventory price;
+	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")
 	private User user;
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "product_id")
-	private Product product;
+	private Inventory product_id;
 
 	public Orders() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Orders(int order_quantity, double order_total, String order_date, User user, Product product) {
+	public Orders(int order_quantity, double order_total, String order_date, User user, Inventory product) {
 		super();
 		this.order_quantity = order_quantity;
 		this.order_total = order_total;
 		this.order_date = order_date;
 		this.user = user;
-		this.product = product;
+		this.product_id = product;
 	}
 
-	public Orders(int id, int order_quantity, double order_total, String order_date, User user, Product product) {
+	public Orders(int id, int order_quantity, double order_total, String order_date, User user, Inventory product) {
 		super();
 		this.id = id;
 		this.order_quantity = order_quantity;
 		this.order_total = order_total;
 		this.order_date = order_date;
 		this.user = user;
-		this.product = product;
+		this.product_id = product;
 	}
+	
+	/*
+	 * public Orders(int id, int order_quantity, Inventory order_price, double
+	 * order_total, String order_date, User user, Inventory product) { super();
+	 * this.id = id; this.order_price = order_price; this.order_quantity =
+	 * order_quantity; this.order_total = order_total; this.order_date = order_date;
+	 * this.user = user; this.product = product; }
+	 */
+	
+	public Orders(int id, int order_quantity,  Inventory price, double order_total, String order_date, User user, Inventory product) {
+		super();
+		this.id = id;	
+		this.price = price;
+		this.order_quantity = order_quantity;
+		this.order_total = order_total;
+		this.order_date = order_date;
+		this.user = user;
+		this.product_id = product;
+	}
+	
+
+	public Orders( Inventory price, int order_quantity,  double order_total, String order_date, User user) {
+		super();
+		
+		this.price = price;
+		this.order_quantity = order_quantity;
+		this.order_total = order_total;
+		this.order_date = order_date;
+		this.user = user;
+		
+	}
+	
+	public Orders( int order_quantity,  Inventory order_price, double order_total, String order_date, User user, Inventory product) {
+		super();
+			
+		this.price = order_price;
+		this.order_quantity = order_quantity;
+		this.order_total = order_total;
+		this.order_date = order_date;
+		this.user = user;
+		this.product_id = product;
+	}
+	
+	/*
+	 * public Orders(int order_quantity, double order_total, double order_price,
+	 * User user, Inventory product) { super(); this.order_quantity =
+	 * order_quantity; this.order_total = order_total; this.order_price =
+	 * order_price; this.user = user; this.product = product; }
+	 * 
+	 */
+	
+	public Orders(int order_quantity, double order_total, Inventory order_price, User user, Inventory product) {
+		super();
+		this.order_quantity = order_quantity;
+		this.order_total = order_total;
+		this.price = order_price;
+		this.user = user;
+		this.product_id = product;
+	}
+
+	public Orders(int order_quantity, double order_total, Inventory order_price, User user) {
+		super();
+		this.order_quantity = order_quantity;
+		this.order_total = order_total;
+		this.price = order_price;
+		this.user = user;
+	}
+	
+	public Orders(int id, Inventory order_price, User user) {
+		super();
+		this.id = id;
+		this.price = order_price;
+		this.user = user;
+		
+	}
+	
+	public Orders(int order_quantity, double order_total, User user) {
+		super();
+		this.order_quantity = order_quantity;
+		this.order_total = order_total;
+		this.user = user;
+		
+	}
+
+	
 
 	public int getId() {
 		return id;
@@ -94,6 +190,14 @@ public class Orders {
 		this.order_date = order_date;
 	}
 
+	public Inventory getPrice() {
+		return price;
+	}
+
+	public void setPrice(Inventory price) {
+		this.price = price;
+	}
+
 	public User getUser() {
 		return user;
 	}
@@ -102,18 +206,12 @@ public class Orders {
 		this.user = user;
 	}
 
-	public Product getProduct() {
-		return product;
+	public Inventory getProduct() {
+		return product_id;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-
-	@Override
-	public String toString() {
-		return "Orders [id=" + id + ", order_quantity=" + order_quantity + ", order_total=" + order_total
-				+ ", order_date=" + order_date + ", user=" + user + ", product=" + product + "]";
+	public void setProduct(Inventory product) {
+		this.product_id = product;
 	}
 
 	@Override
@@ -126,7 +224,8 @@ public class Orders {
 		long temp;
 		temp = Double.doubleToLongBits(order_total);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
-		result = prime * result + ((product == null) ? 0 : product.hashCode());
+		result = prime * result + ((price == null) ? 0 : price.hashCode());
+		result = prime * result + ((product_id == null) ? 0 : product_id.hashCode());
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
@@ -151,10 +250,15 @@ public class Orders {
 			return false;
 		if (Double.doubleToLongBits(order_total) != Double.doubleToLongBits(other.order_total))
 			return false;
-		if (product == null) {
-			if (other.product != null)
+		if (price == null) {
+			if (other.price != null)
 				return false;
-		} else if (!product.equals(other.product))
+		} else if (!price.equals(other.price))
+			return false;
+		if (product_id == null) {
+			if (other.product_id != null)
+				return false;
+		} else if (!product_id.equals(other.product_id))
 			return false;
 		if (user == null) {
 			if (other.user != null)
@@ -163,7 +267,13 @@ public class Orders {
 			return false;
 		return true;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Orders [id=" + id + ", order_quantity=" + order_quantity + ", order_total=" + order_total
+				+ ", order_date=" + order_date + ", price=" + price + ", user=" + user + ", product=" + product_id + "]";
+	}
+
 	
 	
 

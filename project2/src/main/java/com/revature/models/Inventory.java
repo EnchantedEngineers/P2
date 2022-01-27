@@ -14,37 +14,61 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "inventory")
 
-public class Inventory{
+public class Inventory {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "inventory_id")
+	@Column(name = "product_id")
 	private int id; 
+	
 	@Column(nullable = false)
-	private int available_quantity; 
+	private String product_name; 
+	
+	@Column(nullable = false)
+	private int product_category; //this should be another table of categories of products
+	
+	@Column(nullable = false)
+	private double price; 
+	
+	@Column(nullable = false)
+	private int quantity; 
+	
+	@Column
+	private String picture_url; 
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "product_id", insertable = false,updatable=false)
-	public Product product;
+	@JoinColumn(name = "category_id")
+	public Categories category;
 
+	
+	
 	public Inventory() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Inventory( int quantity, Product product) {
+	public Inventory(String product_name) {
 		super();
-		this.available_quantity=quantity;		
-		this.product=product;
-		
+		this.product_name = product_name;
 	}
 
-	public Inventory(int id, int quantity, Product product) {
+	public Inventory(String product_name, int product_category, double price, int quantity, Categories category) {
+		super();
+		this.product_name = product_name;
+		this.product_category = product_category;
+		this.price = price;
+		this.quantity = quantity;
+		this.category = category;
+	}
+
+	public Inventory(int id, String product_name, int product_category, double price, int quantity,
+			Categories category) {
 		super();
 		this.id = id;
-		this.available_quantity=quantity;		
-		this.product=product;
-		
+		this.product_name = product_name;
+		this.product_category = product_category;
+		this.price = price;
+		this.quantity = quantity;
+		this.category = category;
 	}
 
 	public int getId() {
@@ -55,42 +79,70 @@ public class Inventory{
 		this.id = id;
 	}
 
+	public String getProduct_name() {
+		return product_name;
+	}
+
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+
+	public int getProduct_category() {
+		return product_category;
+	}
+
+	public void setProduct_category(int product_category) {
+		this.product_category = product_category;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public Categories getCategory() {
+		return category;
+	}
+
+	public void setCategory(Categories category) {
+		this.category = category;
+	}
 
 	
-
-	
-
-	public int getAvailable_quantity() {
-		return available_quantity;
-	}
-
-	public void setAvailable_quantity(int available_quantity) {
-		this.available_quantity = available_quantity;
-	}
-
-	public Product getProduct() {
-		return product;
-	}
-
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-
 	@Override
 	public String toString() {
-		return "Inventory [id=" + id + ", available_quantity=" + available_quantity + ", product=" + product + "]";
+		return "Inventory [id=" + id + ", product_name=" + product_name + ", product_category=" + product_category
+				+ ", price=" + price + ", quantity=" + quantity + ", category=" + category + "]";
 	}
 
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + available_quantity;
+		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + id;
-		result = prime * result + ((product == null) ? 0 : product.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(price);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + product_category;
+		result = prime * result + ((product_name == null) ? 0 : product_name.hashCode());
+		result = prime * result + quantity;
 		return result;
 	}
 
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -100,20 +152,26 @@ public class Inventory{
 		if (getClass() != obj.getClass())
 			return false;
 		Inventory other = (Inventory) obj;
-		if (available_quantity != other.available_quantity)
+		if (category == null) {
+			if (other.category != null)
+				return false;
+		} else if (!category.equals(other.category))
 			return false;
 		if (id != other.id)
 			return false;
-		if (product == null) {
-			if (other.product != null)
+		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
+			return false;
+		if (product_category != other.product_category)
+			return false;
+		if (product_name == null) {
+			if (other.product_name != null)
 				return false;
-		} else if (!product.equals(other.product))
+		} else if (!product_name.equals(other.product_name))
+			return false;
+		if (quantity != other.quantity)
 			return false;
 		return true;
 	}
-	
-	
-	
 	
 	
 
