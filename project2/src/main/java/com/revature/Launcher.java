@@ -1,5 +1,8 @@
 package com.revature;
 
+import com.revature.controllers.CategoryController;
+import com.revature.controllers.InventoryController;
+import com.revature.controllers.ProductController;
 import com.revature.controllers.UserController;
 import com.revature.models.Address;
 import com.revature.models.Categories;
@@ -33,8 +36,11 @@ public class Launcher {
 		
 		test();
 		
-		
+		CategoryController cc = new CategoryController();
+		InventoryController ic = new InventoryController();
 		UserController uc = new UserController();
+		ProductController pc = new ProductController();
+		
 		
 		Javalin app = Javalin.create(
 				config -> {
@@ -42,12 +48,24 @@ public class Launcher {
 				}
 			).start(3000);
 		
+		//=========================================CATEGORYSERVICE=========================================
+		app.post("/category", cc.insertCategoryHandler);
+		//=========================================INVENTORYSERVICE=========================================
+		app.post("/inventory", ic.insertInventoryHandler);
+		//==========================================PRODUCTSERVICE==========================================
+		app.get("/product", pc.getAllProductsHandler);
+		app.get("/product/price/{price}", pc.getProductByPriceHandler);
+		app.get("/product/category/{category}", pc.getProductByCategoryHandler);
+		app.get("/product/{id}", pc.getProductByIdHandler);
+		app.get("/product/name/{name}", pc.getProductByNameHandler);
+		app.post("/product/insert", pc.insertProductHandler);
+		//============================================USERSERVICE===========================================
 		app.get("/user", uc.getAllUsersHandler);
 		app.get("/user/{username}", uc.getUserByUsernameHandler);
 		app.get("/user/id/{id}", uc.getUserByIdHandler);
 		app.get("user/profile/{username}", uc.getUserProfileHandler);
-		app.post("/user/login", uc.loginHandler);
-		app.post("/user/insert", uc.insertHandler);
+		app.post("/user", uc.loginHandler);
+		app.post("/user/insert", uc.insertUserHandler);
 
 	//connect();
        //UserDAO uDAO=new UserDAO();

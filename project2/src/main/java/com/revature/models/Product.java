@@ -25,7 +25,7 @@ public class Product {
 	@Column(unique = true, nullable = false)
 	private String product_name; 
 	
-	@Column(unique = true, nullable = false)
+	@Column(nullable = false)
 	private int product_price; 
 	/*@Column(unique = true)
 	private Image product_picture; */

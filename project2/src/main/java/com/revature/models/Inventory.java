@@ -24,7 +24,7 @@ public class Inventory{
 	private int available_quantity; 
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "product_id")//, insertable = false,updatable=false)
+	@JoinColumn(name = "product_id", unique = true)//, insertable = false,updatable=false)
 	public Product product;
 
 	public Inventory() {

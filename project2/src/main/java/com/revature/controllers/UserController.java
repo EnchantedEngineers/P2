@@ -17,7 +17,7 @@ public class UserController {
 
 	UserService uService = new UserService();
 	
-	public Handler insertHandler = (ctx) -> {
+	public Handler insertUserHandler = (ctx) -> {
 		
 		String body = ctx.body();
 	

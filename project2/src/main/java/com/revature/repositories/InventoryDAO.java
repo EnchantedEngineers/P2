@@ -7,13 +7,18 @@ import com.revature.util.HibernateUtil;
 
 public class InventoryDAO {
 	
-public void insertInventory(Inventory inv) {
-		
+public String insertInventory(Inventory inv) {
+	try {
 		Session ses = HibernateUtil.getSession(); 
 		
 		ses.save(inv); 
 		
-		HibernateUtil.closeSession(); 
+		HibernateUtil.closeSession(); 	
+		return "Success";
+	} catch (Exception e) {
+		e.printStackTrace();
+		return "Failed";
 	}
-
+	
+}
 }
