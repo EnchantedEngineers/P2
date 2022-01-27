@@ -23,7 +23,7 @@ public class Address {
 	@Column(name = "address_id")
 	private int id; 
 	
-	@Column(unique = true, nullable = false)
+	@Column(nullable = false)
 	private String address_1; 
 	
 	@Column
@@ -40,18 +40,17 @@ public class Address {
 	
 	@Column(nullable = false)
 	private String postal_code; 
-	
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id")
-	private User user;
 
+	
+	
 	public Address() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Address(String address_1, String address_2, String city, String state, String country, String postal_code,
-			User user) {
+
+
+	public Address(String address_1, String address_2, String city, String state, String country, String postal_code) {
 		super();
 		this.address_1 = address_1;
 		this.address_2 = address_2;
@@ -59,11 +58,12 @@ public class Address {
 		this.state = state;
 		this.country = country;
 		this.postal_code = postal_code;
-		this.user = user;
 	}
+
+
 
 	public Address(int id, String address_1, String address_2, String city, String state, String country,
-			String postal_code, User user) {
+			String postal_code) {
 		super();
 		this.id = id;
 		this.address_1 = address_1;
@@ -72,78 +72,17 @@ public class Address {
 		this.state = state;
 		this.country = country;
 		this.postal_code = postal_code;
-		this.user = user;
 	}
 
-	public int getId() {
-		return id;
-	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getAddress_1() {
-		return address_1;
-	}
-
-	public void setAddress_1(String address_1) {
-		this.address_1 = address_1;
-	}
-
-	public String getAddress_2() {
-		return address_2;
-	}
-
-	public void setAddress_2(String address_2) {
-		this.address_2 = address_2;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	public String getPostal_code() {
-		return postal_code;
-	}
-
-	public void setPostal_code(String postal_code) {
-		this.postal_code = postal_code;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 	@Override
 	public String toString() {
 		return "Address [id=" + id + ", address_1=" + address_1 + ", address_2=" + address_2 + ", city=" + city
-				+ ", state=" + state + ", country=" + country + ", postal_code=" + postal_code + ", user=" + user + "]";
+				+ ", state=" + state + ", country=" + country + ", postal_code=" + postal_code + "]";
 	}
+
+
 
 	@Override
 	public int hashCode() {
@@ -156,9 +95,10 @@ public class Address {
 		result = prime * result + id;
 		result = prime * result + ((postal_code == null) ? 0 : postal_code.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -201,12 +141,91 @@ public class Address {
 				return false;
 		} else if (!state.equals(other.state))
 			return false;
-		if (user == null) {
-			if (other.user != null)
-				return false;
-		} else if (!user.equals(other.user))
-			return false;
 		return true;
+	}
+
+
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
+	public String getAddress_1() {
+		return address_1;
+	}
+
+
+
+	public void setAddress_1(String address_1) {
+		this.address_1 = address_1;
+	}
+
+
+
+	public String getAddress_2() {
+		return address_2;
+	}
+
+
+
+	public void setAddress_2(String address_2) {
+		this.address_2 = address_2;
+	}
+
+
+
+	public String getCity() {
+		return city;
+	}
+
+
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+
+
+	public String getState() {
+		return state;
+	}
+
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+
+
+	public String getCountry() {
+		return country;
+	}
+
+
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+
+
+	public String getPostal_code() {
+		return postal_code;
+	}
+
+
+
+	public void setPostal_code(String postal_code) {
+		this.postal_code = postal_code;
 	}
 
 	

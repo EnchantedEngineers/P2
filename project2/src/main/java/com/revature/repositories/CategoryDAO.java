@@ -7,13 +7,17 @@ import com.revature.util.HibernateUtil;
 
 public class CategoryDAO {
 	
-public void insertCategory(Categories category) {
-		
+public String insertCategory(Categories category) {
+		try {
 		Session ses = HibernateUtil.getSession(); 
 		
 		ses.save(category); 
 		
 		HibernateUtil.closeSession(); 
-	}
-
+		return "Success";
+		} catch (Exception e) {
+			return "Failed";
+		}
+		
+}
 }

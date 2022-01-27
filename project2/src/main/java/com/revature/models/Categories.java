@@ -16,7 +16,7 @@ public class Categories {
 	@Column(name = "category_id")
 	private int id; 
 	
-	@Column(nullable = false)
+	@Column(nullable = false, unique = true)
 	private String category_name;
 
 	public Categories() {
