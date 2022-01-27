@@ -20,11 +20,12 @@ public class Inventory{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "inventory_id")
 	private int id; 
+	
 	@Column(nullable = false)
 	private int available_quantity; 
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinColumn(name = "product_id", insertable = false,updatable=false)
+	@JoinColumn(name = "product_id", unique = true)//, insertable = false,updatable=false)
 	public Product product;
 
 	public Inventory() {
@@ -55,10 +56,6 @@ public class Inventory{
 		this.id = id;
 	}
 
-
-	
-
-	
 
 	public int getAvailable_quantity() {
 		return available_quantity;

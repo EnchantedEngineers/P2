@@ -1,0 +1,57 @@
+package com.revature.repositories;
+
+import java.util.List;
+
+import javax.persistence.Query;
+
+import org.hibernate.Session;
+
+import com.revature.models.User;
+import com.revature.util.HibernateUtil;
+
+public class UserDAO {
+
+	public void insertUser(User user) {
+
+		Session ses = HibernateUtil.getSession();
+
+		ses.save(user);
+
+		HibernateUtil.closeSession();
+	}
+
+	// get user by ID
+	public User getUserById(int id) {
+
+		Session ses = HibernateUtil.getSession();
+
+		Query q = ses.createQuery("FROM User u WHERE u.id = ?0");
+		
+		q.setParameter(0, id);
+		
+		User u = (User) q.getSingleResult(); 
+		
+		HibernateUtil.closeSession();
+		
+		return u;
+	}
+
+
+	// get all users
+	public List<User> getAllUsers() {
+
+		Session ses = HibernateUtil.getSession();
+
+		Query q = ses.createQuery("FROM User");
+		
+		List<User> allUsers = q.getResultList(); 
+		
+		HibernateUtil.closeSession();
+		
+		return allUsers;
+		
+	}
+
+	//
+
+}
