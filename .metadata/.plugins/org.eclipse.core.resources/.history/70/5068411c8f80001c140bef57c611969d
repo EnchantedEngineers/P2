@@ -1,0 +1,53 @@
+package com.revature.models;
+
+import java.util.Objects;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "payments")
+public class PaymentMethod {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "payment_id")
+	private int id;
+
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id")
+	private User user;
+
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "checkout_id")
+	private CustomerOrder order;
+
+	@Column
+	private String payment_type;
+
+	@Column
+	private String card_number;
+
+	@Column
+	private int exp_month;
+
+	@Column
+	private int exp_year;
+
+	// boilerplate
+	// code----------------------------------------------------------------------------------------------------
+
+	public PaymentMethod() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+}

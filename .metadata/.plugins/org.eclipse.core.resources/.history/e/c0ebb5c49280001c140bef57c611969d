@@ -1,0 +1,26 @@
+package com.revature.repositories;
+
+import org.hibernate.Session;
+
+import com.revature.models.PaymentMethod;
+import com.revature.util.HibernateUtil;
+
+public class PaymentDAO {
+	
+	public String insertCustomerPayment(PaymentMethod  payment) {
+		
+		try {
+			Session ses = HibernateUtil.getSession(); 
+			
+			ses.save(payment); 
+			
+			HibernateUtil.closeSession(); 
+
+			return "Success";
+			} catch (Exception e) {
+				return "Failed";
+			}
+			
+		}
+
+}

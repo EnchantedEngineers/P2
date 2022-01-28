@@ -9,21 +9,24 @@ import com.revature.controllers.AddressController;
 import com.revature.controllers.CategoryController;
 import com.revature.controllers.CustomerOrderController;
 import com.revature.controllers.InventoryController;
+import com.revature.controllers.PaymentController;
 import com.revature.controllers.ProductController;
 import com.revature.controllers.UserController;
 import com.revature.models.Address;
-import com.revature.models.Cart;
+//import com.revature.models.Cart;
 import com.revature.models.Categories;
 import com.revature.models.CustomerOrder;
 import com.revature.models.Inventory;
+import com.revature.models.PaymentMethod;
 import com.revature.models.Product;
 import com.revature.models.User;
 import com.revature.models.UserProfile;
 import com.revature.repositories.AddressDAO;
-import com.revature.repositories.CartDAO;
+//import com.revature.repositories.CartDAO;
 import com.revature.repositories.CategoryDAO;
 import com.revature.repositories.CustomerOrderDAO;
 import com.revature.repositories.InventoryDAO;
+import com.revature.repositories.PaymentDAO;
 import com.revature.repositories.ProductDAO;
 import com.revature.repositories.UserDAO;
 
@@ -41,6 +44,7 @@ public class Launcher {
 		InventoryController ic = new InventoryController();
 		UserController uc = new UserController();
 		ProductController pc = new ProductController();
+		PaymentController payC = new PaymentController(); 
 		
 		
 		
@@ -77,6 +81,9 @@ public class Launcher {
 		app.get("user/profile/{username}", uc.getUserProfileHandler);
 		app.post("/user", uc.loginHandler);
 		app.post("/user/insert", uc.insertUserHandler);
+		//============================================PAYMENT===========================================
+		app.post("payment", payC.insertPaymentHandler);
+		app.get("payment", payC.getAllPaymentsHandler);
 	}
 	//connect();
        //UserDAO uDAO=new UserDAO();
@@ -112,7 +119,8 @@ public class Launcher {
 		UserDAO uDAO = new UserDAO();
 		AddressDAO aDAO = new AddressDAO(); 
 		CategoryDAO cDAO = new CategoryDAO();
-		CartDAO CtDAO =new CartDAO();
+//		CartDAO CtDAO =new CartDAO();
+		PaymentDAO pDAO = new PaymentDAO(); 
 		
 		Address a1 = new Address("3707 Jason Dr.", " ", "Chattanooga", "TN", "USA", "37412"); 
 		Address a2 = new Address("15 Seminole", " ", "SugarLand", "TX", "USA", "77498");
@@ -182,34 +190,42 @@ public class Launcher {
 		
 		}
 		
-//CART AND PRODUCT FUNCTIONALITY START HERE------------------------------------------------------------------------------------------------------------
+		//CART AND PRODUCT FUNCTIONALITY START HERE------------------------------------------------------------------------------------------------------------
 		
-		Product prod1 = new Product("Grape", 1.25, c2);
+				Product prod1 = new Product("Grape", 1.25, c2);
 
 
-		CustomerOrder or2 = new CustomerOrder( 5, 100.50, ld, u1, p1);
+				CustomerOrder or2 = new CustomerOrder( 5, 100.50, ld, u1, prod1);
+				
+				/** PaymentMethod(User user, CustomerOrder order, String payment_type, String card_number, int exp_month,
+						int exp_year)**/
+				
+				PaymentMethod pay1 = new PaymentMethod(u2, or2, "Visa", "1234456789", 8, 25);
+				pDAO.insertCustomerPayment(pay1);
+
+		
 
 			
-		Cart userCart1 = new Cart(prod1, u1, or2);
+//		Cart userCart1 = new Cart(prod1, u1, or2);
 
 		
-		System.out.println(userCart1);
-		
-		//Felix's addition started
-				CtDAO.insertCart(userCart1);
+//		System.out.println(userCart1);
+//		
+//		//Felix's addition started
+//				CtDAO.insertCart(userCart1);
 
 		       
-		  	 List<Cart> allCartContent = CtDAO.getAllCart();
-		     for(Cart c: allCartContent) {
-		  	   System.out.println(c);
-		     }
+//		  	 List<Cart> allCartContent = CtDAO.getAllCart();
+//		     for(Cart c: allCartContent) {
+//		  	   System.out.println(c);
+//		     }
 		      
-		     System.out.println(CtDAO.getCartContentsByUserId2(1));
-		     
-		     List<Cart> allCartContentbyUser = CtDAO.getCartContentsByUserId2(1);
-		     for(Cart c: allCartContentbyUser) {
-		  	   System.out.println(c);
-		     }
+//		     System.out.println(CtDAO.getCartContentsByUserId2(1));
+//		     
+//		     List<Cart> allCartContentbyUser = CtDAO.getCartContentsByUserId2(1);
+//		     for(Cart c: allCartContentbyUser) {
+//		  	   System.out.println(c);
+//		     }
 
 
 		      
