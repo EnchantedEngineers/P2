@@ -1,7 +1,10 @@
 package com.revature.controllers;
 
+import java.util.List;
+
 import com.google.gson.Gson;
 import com.revature.models.Inventory;
+import com.revature.models.User;
 import com.revature.services.InventoryService;
 
 import io.javalin.http.Handler;
@@ -29,4 +32,21 @@ public class InventoryController {
 		}
 		}
 };
+
+	public Handler getAllInventoryHandler = (ctx) -> {
+		if (ctx.req.getSession() != null) {
+			
+			List<Inventory> allInventory = iService.getAllInventory();
+			Gson gson = new Gson();
+	
+			String JSONInventory =  gson.toJson(allInventory);
+			
+			ctx.result(JSONInventory);
+			ctx.status(200);
+			} else {
+				ctx.result("Failed to Retrieve Inventory");
+				ctx.status(404);
+			}
+		
+	};
 }

@@ -11,13 +11,20 @@ import com.revature.models.CustomerOrder;
 import com.revature.util.HibernateUtil;
 
 public class CustomerOrderDAO {
-public void insertCustomerOrder(CustomerOrder  CustomerOrder) {
+public String insertCustomerOrder(CustomerOrder  CustomerOrder) {
 		
+	try {
 		Session ses = HibernateUtil.getSession(); 
 		
 		ses.save(CustomerOrder); 
 		
 		HibernateUtil.closeSession(); 
+
+		return "Success";
+		} catch (Exception e) {
+			return "Failed";
+		}
+		
 	}
 public List<CustomerOrder> getAllCustomerOrders() {
 	
@@ -72,18 +79,22 @@ public List<CustomerOrder> getCustomerOrderByOrderDate(Date orderDate,int id) {
 	return CustomerOrderList;	
 }*/
 
-public CustomerOrder getCustomerOrderById(int id) {
-	
+public List<CustomerOrder> getCustomerOrderByUserId(int id) {
+	try {
 	Session ses = HibernateUtil.getSession(); 
 	
-	
+	Query q = ses.createQuery("FROM CustomerOrder p where p.user.id=?0");
+	q.setParameter(0, id);
 	//create a List to hold the results of the query
-	CustomerOrder customerOrder = ses.get(CustomerOrder.class, id);
+	List<CustomerOrder> customerOrderList = q.getResultList();
 	
 	HibernateUtil.closeSession(); 
-	return customerOrder;	
+	return customerOrderList;	
+} catch (Exception e) {
+	e.printStackTrace();
+	return null;
 }
-
+}
 
 
 

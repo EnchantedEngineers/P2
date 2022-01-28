@@ -5,7 +5,9 @@ import java.util.List;
 
 import javax.persistence.NoResultException;
 
+import com.revature.controllers.AddressController;
 import com.revature.controllers.CategoryController;
+import com.revature.controllers.CustomerOrderController;
 import com.revature.controllers.InventoryController;
 import com.revature.controllers.ProductController;
 import com.revature.controllers.UserController;
@@ -33,7 +35,9 @@ public class Launcher {
 		
 		test();
 		
+		AddressController ac = new AddressController();
 		CategoryController cc = new CategoryController();
+		CustomerOrderController co = new CustomerOrderController();
 		InventoryController ic = new InventoryController();
 		UserController uc = new UserController();
 		ProductController pc = new ProductController();
@@ -46,9 +50,18 @@ public class Launcher {
 				}
 			).start(3000);
 		
+		//=========================================ADDRESSSERVICE=========================================
+		app.put("/address", ac.updateAddressHandler);
 		//=========================================CATEGORYSERVICE=========================================
 		app.post("/category", cc.insertCategoryHandler);
+		//=======================================CUSTOMERORDERSERVICE========================================
+		app.get("/order", co.getAllCustomerOrdersHandler);
+//		app.get("/order/ordertotal/{ordertotal}", co.getCustomerOrderByOrderTotalHandler);
+//		app.get("/order/orderdate/{orderdate}", co.getCustomerOrderByOrderDateHandler);
+		app.get("/order/{id}", co.getCustomerOrderByUserIdHandler);
+//		app.post("/order/insert", co.insertCustomerOrderHandler);
 		//=========================================INVENTORYSERVICE=========================================
+		app.get("/inventory", ic.getAllInventoryHandler);
 		app.post("/inventory", ic.insertInventoryHandler);
 		//==========================================PRODUCTSERVICE==========================================
 		app.get("/product", pc.getAllProductsHandler);
