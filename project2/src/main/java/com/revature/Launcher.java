@@ -20,6 +20,7 @@ import com.revature.models.UserProfile;
 import com.revature.repositories.AddressDAO;
 import com.revature.repositories.CartDAO;
 import com.revature.repositories.CategoryDAO;
+import com.revature.repositories.CheckoutDao;
 import com.revature.repositories.CustomerOrderDAO;
 import com.revature.repositories.InventoryDAO;
 import com.revature.repositories.ProductDAO;
@@ -100,6 +101,11 @@ public class Launcher {
 		AddressDAO aDAO = new AddressDAO(); 
 		CategoryDAO cDAO = new CategoryDAO();
 		CartDAO CtDAO =new CartDAO();
+		CheckoutDao  choutDao = new CheckoutDao();
+		
+		
+		
+		
 		
 		Address a1 = new Address("3707 Jason Dr.", " ", "Chattanooga", "TN", "USA", "37412"); 
 		Address a2 = new Address("15 Seminole", " ", "SugarLand", "TX", "USA", "77498");
@@ -174,7 +180,7 @@ public class Launcher {
 		Product prod1 = new Product("Grape", 1.25, c2);
 
 
-		CustomerOrder or2 = new CustomerOrder( 5, 100.50, ld, u1, p1);
+		CustomerOrder or2 = new CustomerOrder( 5, 100.50, ld, u1, prod1);
 
 			
 		Cart userCart1 = new Cart(prod1, u1, or2);
