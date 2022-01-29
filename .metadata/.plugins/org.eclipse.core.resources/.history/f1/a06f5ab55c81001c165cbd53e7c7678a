@@ -26,9 +26,9 @@ public class PaymentMethod {
 	@JoinColumn(name = "user_id")
 	private User user;
 
-//	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//	@JoinColumn(name = "checkout_id")
-//	private CustomerOrder order;
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "checkout_id")
+	private CustomerOrder order;
 
 	@Column
 	private String payment_type;
@@ -42,103 +42,98 @@ public class PaymentMethod {
 	@Column
 	private int exp_year;
 
-
 	// boilerplate
 	// code----------------------------------------------------------------------------------------------------
-	
+
 	public PaymentMethod() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public PaymentMethod(User user, String payment_type, String card_number, int exp_month, int exp_year) {
+	public PaymentMethod(User user, CustomerOrder order, String payment_type, String card_number, int exp_month,
+			int exp_year) {
 		super();
 		this.user = user;
+		this.order = order;
 		this.payment_type = payment_type;
 		this.card_number = card_number;
 		this.exp_month = exp_month;
 		this.exp_year = exp_year;
 	}
 
-
-	public PaymentMethod(int id, User user, String payment_type, String card_number, int exp_month, int exp_year) {
+	public PaymentMethod(int id, User user, CustomerOrder order, String payment_type, String card_number, int exp_month,
+			int exp_year) {
 		super();
 		this.id = id;
 		this.user = user;
+		this.order = order;
 		this.payment_type = payment_type;
 		this.card_number = card_number;
 		this.exp_month = exp_month;
 		this.exp_year = exp_year;
 	}
-
 
 	public int getId() {
 		return id;
 	}
 
-
 	public void setId(int id) {
 		this.id = id;
 	}
-
 
 	public User getUser() {
 		return user;
 	}
 
-
 	public void setUser(User user) {
 		this.user = user;
 	}
 
+	public CustomerOrder getOrder() {
+		return order;
+	}
+
+	public void setOrder(CustomerOrder order) {
+		this.order = order;
+	}
 
 	public String getPayment_type() {
 		return payment_type;
 	}
 
-
 	public void setPayment_type(String payment_type) {
 		this.payment_type = payment_type;
 	}
-
 
 	public String getCard_number() {
 		return card_number;
 	}
 
-
 	public void setCard_number(String card_number) {
 		this.card_number = card_number;
 	}
-
 
 	public int getExp_month() {
 		return exp_month;
 	}
 
-
 	public void setExp_month(int exp_month) {
 		this.exp_month = exp_month;
 	}
-
 
 	public int getExp_year() {
 		return exp_year;
 	}
 
-
 	public void setExp_year(int exp_year) {
 		this.exp_year = exp_year;
 	}
 
-
 	@Override
 	public String toString() {
-		return "PaymentMethod [id=" + id + ", user=" + user + ", payment_type=" + payment_type + ", card_number="
-				+ card_number + ", exp_month=" + exp_month + ", exp_year=" + exp_year + "]";
+		return "PaymentMethod [id=" + id + ", user=" + user + ", order=" + order + ", payment_type=" + payment_type
+				+ ", card_number=" + card_number + ", exp_month=" + exp_month + ", exp_year=" + exp_year + "]";
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -148,11 +143,11 @@ public class PaymentMethod {
 		result = prime * result + exp_month;
 		result = prime * result + exp_year;
 		result = prime * result + id;
+		result = prime * result + ((order == null) ? 0 : order.hashCode());
 		result = prime * result + ((payment_type == null) ? 0 : payment_type.hashCode());
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -174,6 +169,11 @@ public class PaymentMethod {
 			return false;
 		if (id != other.id)
 			return false;
+		if (order == null) {
+			if (other.order != null)
+				return false;
+		} else if (!order.equals(other.order))
+			return false;
 		if (payment_type == null) {
 			if (other.payment_type != null)
 				return false;
@@ -189,5 +189,4 @@ public class PaymentMethod {
 	
 	
 
-
-	}
+}

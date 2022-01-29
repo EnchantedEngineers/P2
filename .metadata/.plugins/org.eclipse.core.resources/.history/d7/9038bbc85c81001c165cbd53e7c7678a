@@ -200,7 +200,7 @@ public class Launcher {
 				/** PaymentMethod(User user, CustomerOrder order, String payment_type, String card_number, int exp_month,
 						int exp_year)**/
 				
-				PaymentMethod pay1 = new PaymentMethod(u2, "Visa", "1234456789", 8, 25);
+				PaymentMethod pay1 = new PaymentMethod(u2, or2, "Visa", "1234456789", 8, 25);
 				pDAO.insertCustomerPayment(pay1);
 
 		
