@@ -30,77 +30,104 @@ public class Product {
 	/*@Column(unique = true)
 	private Image product_picture; */
 	
+	@Column(nullable = false)
+	private int available_quantity; 
+	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "category_id")
 	private Categories  product_category;
 
-	public Product(int id, String product_name, double product_price, Categories product_category) {
-		super();
-		this.id = id;
-		this.product_name = product_name;
-		this.product_price = product_price;
-		this.product_category = product_category;
-	}
+
+	//boilerplate code --------------------------------------------------------------------
 	
-	public Product(String product_name, double product_price, Categories product_category) {
-		super();
-		this.product_name = product_name;
-		this.product_price = product_price;
-		//this.product_picture = product_picture;
-		this.product_category = product_category;
-	}
-
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getProduct_name() {
-		return product_name;
-	}
-
-	public void setProduct_name(String product_name) {
-		this.product_name = product_name;
-	}
-
-	public double getProduct_price() {
-		return product_price;
-	}
-
-	public void setProduct_price(double product_price) {
-		this.product_price = product_price;
-	}
-
-	/*public Image getProduct_picture() {
-		return product_picture;
-	}
-
-	public void setProduct_picture(Image product_picture) {
-		this.product_picture = product_picture;
-	}*/
-
-	public Categories getProduct_category() {
-		return product_category;
-	}
-
-	public void setProduct_category(Categories product_category) {
-		this.product_category = product_category;
-	}
-
 	public Product() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	
+
+	public Product(String product_name, double product_price, int available_quantity, Categories product_category) {
+		super();
+		this.product_name = product_name;
+		this.product_price = product_price;
+		this.available_quantity = available_quantity;
+		this.product_category = product_category;
+	}
+
+
+	public Product(int id, String product_name, double product_price, int available_quantity,
+			Categories product_category) {
+		super();
+		this.id = id;
+		this.product_name = product_name;
+		this.product_price = product_price;
+		this.available_quantity = available_quantity;
+		this.product_category = product_category;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", product_name=" + product_name + ", product_price=" + product_price
+				+ ", available_quantity=" + available_quantity + ", product_category=" + product_category + "]";
+	}
+
+
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+	public String getProduct_name() {
+		return product_name;
+	}
+
+
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+
+
+	public double getProduct_price() {
+		return product_price;
+	}
+
+
+	public void setProduct_price(double product_price) {
+		this.product_price = product_price;
+	}
+
+
+	public int getAvailable_quantity() {
+		return available_quantity;
+	}
+
+
+	public void setAvailable_quantity(int available_quantity) {
+		this.available_quantity = available_quantity;
+	}
+
+
+	public Categories getProduct_category() {
+		return product_category;
+	}
+
+
+	public void setProduct_category(Categories product_category) {
+		this.product_category = product_category;
+	}
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + available_quantity;
 		result = prime * result + id;
 		result = prime * result + ((product_category == null) ? 0 : product_category.hashCode());
 		result = prime * result + ((product_name == null) ? 0 : product_name.hashCode());
@@ -109,6 +136,7 @@ public class Product {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -119,6 +147,8 @@ public class Product {
 		if (getClass() != obj.getClass())
 			return false;
 		Product other = (Product) obj;
+		if (available_quantity != other.available_quantity)
+			return false;
 		if (id != other.id)
 			return false;
 		if (product_category == null) {
@@ -135,12 +165,6 @@ public class Product {
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", product_name=" + product_name + ", product_price=" + product_price
-				+ ", product_category=" + product_category.getCategory_name() + "]";
-	} 
 	
 	
 
