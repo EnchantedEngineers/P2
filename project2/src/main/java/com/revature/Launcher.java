@@ -8,7 +8,6 @@ import javax.persistence.NoResultException;
 import com.revature.controllers.AddressController;
 import com.revature.controllers.CategoryController;
 import com.revature.controllers.CustomerOrderController;
-import com.revature.controllers.InventoryController;
 import com.revature.controllers.PaymentController;
 import com.revature.controllers.ProductController;
 import com.revature.controllers.UserController;
@@ -16,7 +15,6 @@ import com.revature.models.Address;
 //import com.revature.models.Cart;
 import com.revature.models.Categories;
 import com.revature.models.CustomerOrder;
-import com.revature.models.Inventory;
 import com.revature.models.PaymentMethod;
 import com.revature.models.Product;
 import com.revature.models.User;
@@ -25,7 +23,6 @@ import com.revature.repositories.AddressDAO;
 //import com.revature.repositories.CartDAO;
 import com.revature.repositories.CategoryDAO;
 import com.revature.repositories.CustomerOrderDAO;
-import com.revature.repositories.InventoryDAO;
 import com.revature.repositories.PaymentDAO;
 import com.revature.repositories.ProductDAO;
 import com.revature.repositories.UserDAO;
@@ -41,7 +38,7 @@ public class Launcher {
 		AddressController ac = new AddressController();
 		CategoryController cc = new CategoryController();
 		CustomerOrderController co = new CustomerOrderController();
-		InventoryController ic = new InventoryController();
+//		InventoryController ic = new InventoryController();
 		UserController uc = new UserController();
 		ProductController pc = new ProductController();
 		PaymentController payC = new PaymentController(); 
@@ -65,8 +62,8 @@ public class Launcher {
 		app.get("/order/{id}", co.getCustomerOrderByUserIdHandler);
 //		app.post("/order/insert", co.insertCustomerOrderHandler);
 		//=========================================INVENTORYSERVICE=========================================
-		app.get("/inventory", ic.getAllInventoryHandler);
-		app.post("/inventory", ic.insertInventoryHandler);
+//		app.get("/inventory", ic.getAllInventoryHandler);
+//		app.post("/inventory", ic.insertInventoryHandler);
 		//==========================================PRODUCTSERVICE==========================================
 		app.get("/product", pc.getAllProductsHandler);
 		app.get("/product/price/{price}", pc.getProductByPriceHandler);
@@ -151,21 +148,21 @@ public class Launcher {
 		}
 		
 		ProductDAO pDao=new ProductDAO();
-		Product p1=new Product("apple",12,c2);
+		Product p1=new Product("apple",12,5,c2);
 		pDao.insertProduct(p1);
-		Product p2=new Product("oranges",25,c2);
+		Product p2=new Product("oranges",25,10,c2);
 		pDao.insertProduct(p2);
-		Product p3=new Product("cabbage",10,c1);
+		Product p3=new Product("cabbage",10,15,c1);
 		pDao.insertProduct(p3);
 		
 		List<Product> pl=pDao.getProductByPrice(12);
 		System.out.println(pl);
 		
-		InventoryDAO iDao=new InventoryDAO();
-		Inventory inv1=new Inventory( 12,p3 );
-		iDao.insertInventory(inv1);
-		Inventory inv2=new Inventory( 89,p1);
-		iDao.insertInventory(inv2);
+//		InventoryDAO iDao=new InventoryDAO();
+//		Inventory inv1=new Inventory( 12,p3 );
+//		iDao.insertInventory(inv1);
+//		Inventory inv2=new Inventory( 89,p1);
+//		iDao.insertInventory(inv2);
 		
 		//Orders o=new Orders()
 		
@@ -192,7 +189,7 @@ public class Launcher {
 		
 		//CART AND PRODUCT FUNCTIONALITY START HERE------------------------------------------------------------------------------------------------------------
 		
-				Product prod1 = new Product("Grape", 1.25, c2);
+				Product prod1 = new Product("Grape", 1.25, 25, c2);
 
 
 				CustomerOrder or2 = new CustomerOrder( 5, 100.50, ld, u1, prod1);

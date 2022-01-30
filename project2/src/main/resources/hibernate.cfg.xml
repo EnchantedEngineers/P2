@@ -26,9 +26,9 @@
 		<mapping class="com.revature.models.User"/> <!-- name of your class-->
 		<mapping class="com.revature.models.Address"/>
 		<mapping class="com.revature.models.Categories"/>
-		<mapping class="com.revature.models.Inventory"/>
+		<!-- <mapping class="com.revature.models.Inventory"/> -->
 		<mapping class="com.revature.models.PaymentMethod"/>
-		<mapping class="com.revature.models.Returns"/>
+		<!-- <mapping class="com.revature.models.Returns"/> -->
 		<mapping class="com.revature.models.Shipments"/>
 		<mapping class="com.revature.models.Product"/>
 		<mapping class="com.revature.models.CustomerOrder"/>
