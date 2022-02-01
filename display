@@ -1,0 +1,72 @@
+<div id="zg_colmask">
+  <div id="zg_colleft">
+    <div id="zg_col1wrap">
+      <div id="zg_col1">
+          <div class="a-section a-spacing-large">
+                <div class="a-row a-carousel-controls a-carousel-row a-carousel-has-buttons" >
+                  <div class="row">
+                      <div class="col">
+
+                            <a
+                              class="a-link-normal"
+                              tabindex="-1"
+                              href="/HUGGIES-Natural-Unscented-Wipes-Flip-Top/dp/B07MB5RY9N/ref=zg-bs_baby-products_3/144-0528226-1098044?pd_rd_w=eGkwI&amp;pf_rd_p=1e7b1982-fb44-47aa-b1ce-d356a8609d66&amp;pf_rd_r=WJ09JHBMT1DR1M57W0WR&amp;pd_rd_r=61e44288-1c4d-4373-9336-4bedd60cf8a9&amp;pd_rd_wg=PLZ7b&amp;pd_rd_i=B09L61QL3F&amp;psc=1"
+                              role="link">
+
+                              <div class="a-section a-spacing-mini _p13n-zg-list-carousel-desktop_maskStyle_noop__3Xbw5" >
+                                <img alt="Baby Wipes, Huggies Natural Care Sensitive Baby Diaper Wipes, Unscented, Hypoallergenic, 10 Flip-Top Packs (560 Wipes Total)"
+                                  src="https://images-na.ssl-images-amazon.com/images/I/816Qm+QszcS._AC_UL450_SR450,320_.jpg"
+                                  class="a-dynamic-image p13n-sc-dynamic-image p13n-product-image"
+                                  height="160px"
+                                  data-a-dynamic-image='{"https://images-na.ssl-images-amazon.com/images/I/816Qm+QszcS._AC_UL225_SR225,160_.jpg":[225,160],"https://images-na.ssl-images-amazon.com/images/I/816Qm+QszcS._AC_UL450_SR450,320_.jpg":[450,320],"https://images-na.ssl-images-amazon.com/images/I/816Qm+QszcS._AC_UL675_SR675,480_.jpg":[675,480]}'
+                                  style="max-width: 225px; max-height: 160px"/>
+                                </div>
+                                      <div>
+                                        <ng-container>
+
+
+                                            <a [routerLink] = "['/product2a']" class="nav-link">
+                                                explore
+                                            </a>
+
+                                      </ng-container>
+
+                                    </div>
+                                <div>
+                                <span class="a-size-base a-color-price">
+                                  <span class="_p13n-zg-list-carousel-desktop_price_p13n-sc-price__3mJ9Z">$9.48</span>
+                                  &nbsp;-&nbsp;
+                                  <span class="_p13n-zg-list-carousel-desktop_price_p13n-sc-price__3mJ9Z">$39.50</span>
+                                </span >
+                            </div>
+                            </a>
+                      </div>
+                      <div class="col">
+                          <div>
+
+                              <div class="a-section a-spacing-mini _p13n-zg-list-carousel-desktop_maskStyle_noop__3Xbw5" >
+                                <img   class="nav-link" routerLink="product1"
+                                  src="https://images-na.ssl-images-amazon.com/images/I/71FSETz0IxL._AC_UL450_SR450,320_.jpg"
+                                  height="160px"
+                                  />
+                              </div>
+
+                                 <a class="p13n-sc-truncate-desktop-type2 p13n-sc-truncated"
+                                  aria-hidden="true"
+                                  data-rows="4">
+                                  WaterWipes Original Baby Wipes</a>
+
+
+
+                          </div>
+                      </div>
+
+                   </div>
+                 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<router-outlet></router-outlet>
