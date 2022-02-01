@@ -1,0 +1,20 @@
+<div class="grid-container">
+
+    <!-- Property Binding!! binding an HTML attribute(property) to a TS variable's value-->
+    <!-- A structural directive (bc it changes the structure of our HTML)
+    that renders HTML for every structure in our array -->
+
+    <div *ngFor = "let todo of todosArray"  class="todo-card" [hidden]="hiddenToggle">
+        <!--String Interpolation!! Taking TS values and putting them in our HTML-->
+        <!--We'll be grabbing these values from the todo objects in the todos Array-->
+        <h2>Todo #{{todo.id}}</h2>
+        <p>Task: {{todo.content}}</p>
+        <p>Status: {{todo.status}}</p>
+        <label for="updateBox{{todo.id}}">Update Tasks</label>
+        <input id="updateBox{{todo.id}}" [(ngModel)]="todo.content">
+        <button class="button" (click)="completeTask(todo.id)">Tasks Completed</button>
+    </div>
+
+    
+
+</div>
