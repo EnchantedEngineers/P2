@@ -9,6 +9,8 @@ export class SingleProductComponent implements OnInit {
 
   constructor() { }
 
+  //I want to receive the information from the product that's clicked on the category pages and display on the product page
+
   ngOnInit(): void {
   }
 
