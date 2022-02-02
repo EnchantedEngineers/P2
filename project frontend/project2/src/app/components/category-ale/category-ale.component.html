@@ -1,1 +1,17 @@
-<p>category-ale works!</p>
+
+<div class="container">
+
+    
+    <div class="row">
+        <div class="col-lg-4" *ngFor="let p of product" >
+            <div class="a-section a-spacing-mini _p13n-zg-list-carousel-desktop_maskStyle_noop__3Xbw5" >
+                <img src="{{p.image}}" alt="image of ale" onerror="this.src='https://www.totalwine.com/media/sys_master/twmmedia/h0a/h17/11589987434526.png'">
+                <div class="name">{{p.name}}</div>
+                <div class="price">{{p.price}}</div>
+                </div>
+
+        </div>
+    </div>
+
+</div>
+

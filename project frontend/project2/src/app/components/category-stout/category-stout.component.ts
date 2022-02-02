@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-category-stout',
@@ -7,7 +8,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryStoutComponent implements OnInit {
 
-  constructor() { }
+  // public input:string = "stouts"; 
+
+  public product:any = null; 
+
+
+
+  constructor(private ps:ProductsService) { }
+
+  getProducts():void{
+
+    this.ps.getProductsFromApiStouts().subscribe(
+
+      (data:any) => {
+        let response:String = data.status
+
+        this.product = data; 
+        console.log(this.product); 
+      }, 
+
+      //In case of errors set product object to null
+      ()=>{
+
+      }
+
+    )
+
+  }
 
   ngOnInit(): void {
   }
