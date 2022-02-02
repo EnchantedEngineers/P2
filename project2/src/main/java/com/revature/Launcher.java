@@ -125,10 +125,8 @@ public class Launcher {
 		User u1 = new User("ecross", "password", "Eilese", "Cross", "ec@gmail.com", a1);
 		User u2 = new User("ifrah", "password", "Ifrah", "Karamat", "ifrahk@gmail.com", a2);
 		
-		Categories c1 = new Categories("Vegetables"); 
-		Categories c2 = new Categories("Fruit"); 
-		Categories c3 = new Categories("Meat"); 
-		Categories c4 = new Categories("Snacks"); 
+		Categories c1 = new Categories("Stout"); 
+		Categories c2 = new Categories("Ale"); 
 
 		uDAO.insertUser(u1);
 		uDAO.insertUser(u2);
@@ -138,8 +136,6 @@ public class Launcher {
 		
 		cDAO.insertCategory(c1);
 		cDAO.insertCategory(c2);
-		cDAO.insertCategory(c3);
-		cDAO.insertCategory(c4);
 		
 		try {
 			System.out.println(uDAO.login("ecross", "password1"));
@@ -148,11 +144,11 @@ public class Launcher {
 		}
 		
 		ProductDAO pDao=new ProductDAO();
-		Product p1=new Product("apple",12,5,c2);
+		Product p1=new Product("apple",12,null, 5);
 		pDao.insertProduct(p1);
-		Product p2=new Product("oranges",25,10,c2);
+		Product p2=new Product("oranges",25,null, 10);
 		pDao.insertProduct(p2);
-		Product p3=new Product("cabbage",10,15,c1);
+		Product p3=new Product("cabbage",10,null, 15);
 		pDao.insertProduct(p3);
 		
 		List<Product> pl=pDao.getProductByPrice(12);
@@ -189,10 +185,10 @@ public class Launcher {
 		
 		//CART AND PRODUCT FUNCTIONALITY START HERE------------------------------------------------------------------------------------------------------------
 		
-				Product prod1 = new Product("Grape", 1.25, 25, c2);
+//				Product prod1 = new Product("Grape", 1.25, 25);
 
 
-				CustomerOrder or2 = new CustomerOrder( 5, 100.50, ld, u1, prod1);
+//				CustomerOrder or2 = new CustomerOrder( 5, 100.50, ld, u1, prod1);
 				
 				/** PaymentMethod(User user, CustomerOrder order, String payment_type, String card_number, int exp_month,
 						int exp_year)**/

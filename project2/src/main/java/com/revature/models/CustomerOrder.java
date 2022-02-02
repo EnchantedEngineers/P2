@@ -28,7 +28,7 @@ public class CustomerOrder {
 	public CustomerOrder(int order_quantity, double order_total, LocalDate order_date, User user, Product product) {
 		super();
 		this.order_quantity = order_quantity;
-		this.order_total = order_quantity * product.getProduct_price();
+		this.order_total = order_quantity * product.getPrice();
 		this.order_date = order_date;
 		this.user = user;
 		this.product = product;

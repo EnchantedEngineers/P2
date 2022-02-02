@@ -50,7 +50,7 @@ public List<Product> getProductByPrice(double price) {
 	
 	Session ses = HibernateUtil.getSession(); 
 	
-	Query q = ses.createQuery("FROM Product p where p.product_price <=?0");
+	Query q = ses.createQuery("FROM Product p where p.price <=?0");
 	q.setParameter(0, price);
 	
 	//create a List to hold the results of the query
