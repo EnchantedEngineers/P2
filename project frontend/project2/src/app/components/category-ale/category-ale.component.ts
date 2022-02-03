@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -12,6 +13,9 @@ export class CategoryAleComponent implements OnInit {
 
   public product:any = null; 
   public id :number=2;
+  // public pId : number = 0; 
+
+  
 
 
   constructor(private ps:ProductsService) { }
@@ -30,6 +34,36 @@ export class CategoryAleComponent implements OnInit {
       //In case of errors set product object to null
       ()=>{ this.product = null;
         console.log("NO PRODUCT FOUND")
+      }
+
+    )
+
+  }
+
+   
+  getSingleProduct(product_id:any):void{
+
+    this.ps.getSingleProduct2(product_id).subscribe(
+
+      (data:any) => {
+        let response:String = data.status
+
+        this.product = data; 
+
+        this.ps.getAllProducts.push(this.product); 
+
+        console.log(this.product); //This works
+        // console.log(response);
+
+        console.log(this.ps.getAllProducts);
+
+      }, 
+
+      //In case of errors set product object to null
+      ()=>{
+
+        console.log("NO PRODUCT FOUND")
+
       }
 
     )
