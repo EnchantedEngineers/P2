@@ -10,21 +10,6 @@ export class ProductsService {
 
   constructor(private http:HttpClient) { }
 
-  getProductsFromApiAle():Observable<Product[]>{
-
-    console.log(this.http.get("https://api.sampleapis.com/beers/ale"));
-
-    return this.http.get("https://api.sampleapis.com/beers/ale/") as Observable<Product[]>
-  } //Create two methods to handle each different category
-
-  getProductsFromApiStouts():Observable<Product[]>{
-
-    return this.http.get("https://api.sampleapis.com/beers/stouts/") as Observable<Product[]>
-  }
-
-
-
-
   getProducts(id:number):Observable<Array<Product>>{
     return this.http.get("http://localhost:3000/product/category/" + id) as Observable<Array<Product>>
   }
@@ -32,6 +17,11 @@ export class ProductsService {
   login(username:string, password:string):Observable<Login>{
     let user: Observable<Login> = this.http.post<Login>("http://localhost:3000/user", {username, password}) as Observable<Login>;
     return user;
+  }
+
+  getSingleProduct2(id:number):Observable<Product>{
+
+    return this.http.get("http://localhost:3000/product/" + id) as Observable<Product>;
   }
 
 }
