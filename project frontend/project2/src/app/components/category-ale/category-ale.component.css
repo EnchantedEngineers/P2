@@ -1,0 +1,8 @@
+.border {
+    border-style:double;
+    padding: .5em;
+    background-color: rgb(199, 192, 192);
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}

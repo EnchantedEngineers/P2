@@ -125,21 +125,21 @@ public class Launcher {
 		User u1 = new User("ecross", "password", "Eilese", "Cross", "ec@gmail.com", a1);
 		User u2 = new User("ifrah", "password", "Ifrah", "Karamat", "ifrahk@gmail.com", a2);
 		
-		Categories c1 = new Categories("Vegetables"); 
-		Categories c2 = new Categories("Fruit"); 
-		Categories c3 = new Categories("Meat"); 
-		Categories c4 = new Categories("Snacks"); 
-
+//		Categories c1 = new Categories("Vegetables"); 
+//		Categories c2 = new Categories("Fruit"); 
+//		Categories c3 = new Categories("Meat"); 
+//		Categories c4 = new Categories("Snacks"); 
+		Categories c1 = new Categories("Stout"); 
 		uDAO.insertUser(u1);
 		uDAO.insertUser(u2);
-		
+		Categories c2 = new Categories("Ale"); 
 //		aDAO.insertAddress(a1);
 //		aDAO.insertAddress(a2);
 		
 		cDAO.insertCategory(c1);
 		cDAO.insertCategory(c2);
-		cDAO.insertCategory(c3);
-		cDAO.insertCategory(c4);
+//		cDAO.insertCategory(c3);
+//		cDAO.insertCategory(c4);
 		
 		try {
 			System.out.println(uDAO.login("ecross", "password1"));
@@ -147,16 +147,16 @@ public class Launcher {
 			System.out.println("Wrong Credentials!");
 		}
 		
-		ProductDAO pDao=new ProductDAO();
-		Product p1=new Product("apple",12,5,c2);
-		pDao.insertProduct(p1);
-		Product p2=new Product("oranges",25,10,c2);
-		pDao.insertProduct(p2);
-		Product p3=new Product("cabbage",10,15,c1);
-		pDao.insertProduct(p3);
+//		ProductDAO pDao=new ProductDAO();
+//		Product p1=new Product("apple",12,"",12, c1);
+//		pDao.insertProduct(p1);
+//		Product p2=new Product("oranges",25,"",12, c2);
+//		pDao.insertProduct(p2);
+//		Product p3=new Product("cabbage",10,null, 15);
+//		pDao.insertProduct(p3);
 		
-		List<Product> pl=pDao.getProductByPrice(12);
-		System.out.println(pl);
+//		List<Product> pl=pDao.getProductByPrice(12);
+//		System.out.println(pl);
 		
 //		InventoryDAO iDao=new InventoryDAO();
 //		Inventory inv1=new Inventory( 12,p3 );
@@ -168,11 +168,11 @@ public class Launcher {
 		
 		LocalDate ld=LocalDate.now();
 		
-		CustomerOrder co1=new CustomerOrder(2,12,ld,u1,p1);
-		System.out.println(co1);
-		coDao.insertCustomerOrder(co1);
-		CustomerOrder co2=new CustomerOrder(12,120,ld,u1,p2);
-		coDao.insertCustomerOrder(co2);
+//		CustomerOrder co1=new CustomerOrder(2,12,ld,u1,p1);
+//		System.out.println(co1);
+//		coDao.insertCustomerOrder(co1);
+//		CustomerOrder co2=new CustomerOrder(12,120,ld,u1,p2);
+//		coDao.insertCustomerOrder(co2);
 		UserProfile p=uDAO.getUserProfile("ecross");
 		User u=p.getUser();
 		UserProfile up1=uDAO.getUserProfile("ecross");
@@ -189,10 +189,10 @@ public class Launcher {
 		
 		//CART AND PRODUCT FUNCTIONALITY START HERE------------------------------------------------------------------------------------------------------------
 		
-				Product prod1 = new Product("Grape", 1.25, 25, c2);
+//				Product prod1 = new Product("Grape", 1.25, 25);
 
 
-				CustomerOrder or2 = new CustomerOrder( 5, 100.50, ld, u1, prod1);
+//				CustomerOrder or2 = new CustomerOrder( 5, 100.50, ld, u1, prod1);
 				
 				/** PaymentMethod(User user, CustomerOrder order, String payment_type, String card_number, int exp_month,
 						int exp_year)**/

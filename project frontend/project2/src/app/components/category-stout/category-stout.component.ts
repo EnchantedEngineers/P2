@@ -11,15 +11,15 @@ export class CategoryStoutComponent implements OnInit {
   // public input:string = "stouts"; 
 
   public product:any = null; 
-
+  public id :number=1;
 
 
   constructor(private ps:ProductsService) { }
 
   getProducts():void{
 
-    this.ps.getProductsFromApiStouts().subscribe(
-
+    // this.ps.getProductsFromApiStouts().subscribe(
+      this.ps.getProducts(this.id).subscribe(
       (data:any) => {
         let response:String = data.status
 
@@ -28,15 +28,15 @@ export class CategoryStoutComponent implements OnInit {
       }, 
 
       //In case of errors set product object to null
-      ()=>{
-
+      ()=>{ this.product = null;
+        console.log("NO PRODUCT FOUND")
       }
 
     )
 
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void { this.getProducts()
   }
 
 }

@@ -14,6 +14,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { CategoryStoutComponent } from './components/category-stout/category-stout.component';
 import { CategoryAleComponent } from './components/category-ale/category-ale.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -34,8 +35,8 @@ import { SingleProductComponent } from './components/single-product/single-produ
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
-    
+    BrowserAnimationsModule,
+    FormsModule
     
   ],
   providers: [],
