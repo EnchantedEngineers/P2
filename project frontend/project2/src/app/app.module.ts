@@ -15,6 +15,7 @@ import { CategoryStoutComponent } from './components/category-stout/category-sto
 import { CategoryAleComponent } from './components/category-ale/category-ale.component';
 import { SingleProductComponent } from './components/single-product/single-product.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     CategoryStoutComponent,
     CategoryAleComponent,
     SingleProductComponent,
+    LoginComponent,
     
   ],
   imports: [

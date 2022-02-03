@@ -13,19 +13,5 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  username: string = "";
-  password: string = "";
-  public success:any;
-  login():void {
-    this.ps.login(this.username, this.password).subscribe(
-      (data:any)=> {
-        this.success=data;
-        console.log("Successful Login")
-        console.log(this.success)
-      },
-      () => {
-        console.log("Logging In Failed")
-      }
-    )
-  }
+
 }
