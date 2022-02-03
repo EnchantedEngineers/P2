@@ -5,6 +5,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { CategoryAleComponent } from './components/category-ale/category-ale.component';
 import { CategoryStoutComponent } from './components/category-stout/category-stout.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
@@ -38,6 +39,11 @@ const routes: Routes = [
   {
     path: "category-stout",
    component: CategoryStoutComponent
+  },
+
+  {
+    path: "login",
+   component: LoginComponent
   },
 
 ];
