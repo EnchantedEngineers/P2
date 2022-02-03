@@ -9,20 +9,14 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class CartComponent implements OnInit {
 
-  cartArray:Array<Product> = [];
+  public product:Array<Product> = []; 
 
-  addOrderToArray(){
-
-    // getSingleProduct2
-
-  }
-
-  constructor(ps: ProductsService) { }
+  constructor(private ps:ProductsService) { }
 
   ngOnInit(): void {
 
-
-
+    this.product = this.ps.getAllProducts; 
+   
   }
 
 }

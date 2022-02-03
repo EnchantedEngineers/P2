@@ -8,6 +8,8 @@ import { Login } from '../models/login';
 })
 export class ProductsService {
 
+  getAllProducts :Array<Product> = [];
+
   constructor(private http:HttpClient) { }
 
   getProducts(id:number):Observable<Array<Product>>{
@@ -23,5 +25,6 @@ export class ProductsService {
 
     return this.http.get("http://localhost:3000/product/" + id) as Observable<Product>;
   }
+
 
 }

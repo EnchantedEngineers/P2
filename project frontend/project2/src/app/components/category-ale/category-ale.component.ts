@@ -13,9 +13,9 @@ export class CategoryAleComponent implements OnInit {
 
   public product:any = null; 
   public id :number=2;
-  public pId : number = 0; 
+  // public pId : number = 0; 
 
-  getAllProducts :Array<Product> = [];
+  
 
 
   constructor(private ps:ProductsService) { }
@@ -41,24 +41,28 @@ export class CategoryAleComponent implements OnInit {
   }
 
    
-  getSingleProduct(pId:number):void{
+  getSingleProduct(product_id:any):void{
 
-    this.ps.getSingleProduct2(pId).subscribe(
+    this.ps.getSingleProduct2(product_id).subscribe(
 
       (data:any) => {
         let response:String = data.status
 
         this.product = data; 
 
-        this.getAllProducts.push(this.product); 
+        this.ps.getAllProducts.push(this.product); 
 
         console.log(this.product); //This works
+        // console.log(response);
 
+        console.log(this.ps.getAllProducts);
 
       }, 
 
       //In case of errors set product object to null
       ()=>{
+
+        console.log("NO PRODUCT FOUND")
 
       }
 
