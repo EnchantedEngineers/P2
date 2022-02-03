@@ -8,6 +8,10 @@ import { HomeComponent } from './components/home/home.component';
 import { CategoryAleComponent } from './components/category-ale/category-ale.component';
 import { CategoryStoutComponent } from './components/category-stout/category-stout.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -15,14 +19,17 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     HomeComponent,
     CategoryAleComponent,
     CategoryStoutComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [DatePipe, CategoryAleComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
