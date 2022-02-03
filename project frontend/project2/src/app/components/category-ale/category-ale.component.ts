@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -8,11 +10,10 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class CategoryAleComponent implements OnInit {
 
-  // public input:string="ale"; 
-
+  //product object to be added to an array of objects that we want to display on cart page
   public product:any = null; 
- 
 
+  subscription: Subscription = new Subscription();
 
   constructor(private ps:ProductsService) { }
 
@@ -25,6 +26,7 @@ export class CategoryAleComponent implements OnInit {
 
         this.product = data; 
         console.log(this.product); 
+
       }, 
 
       //In case of errors set product object to null
@@ -36,7 +38,8 @@ export class CategoryAleComponent implements OnInit {
 
   }
 
-  getSingleProduct(id:number):void{
+  
+    getSingleProduct(id:number):void{
 
     this.ps.getSingleProduct2(id).subscribe(
 
@@ -44,7 +47,10 @@ export class CategoryAleComponent implements OnInit {
         let response:String = data.status
 
         this.product = data; 
-        console.log(this.product); 
+
+        console.log(this.product); //This works
+
+
       }, 
 
       //In case of errors set product object to null
@@ -55,6 +61,8 @@ export class CategoryAleComponent implements OnInit {
     )
 
   }
+
+  
 
   ngOnInit(): void {
     this.getProducts(); 

@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Product } from 'src/app/models/product';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-cart',
@@ -7,31 +10,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartComponent implements OnInit {
 
-  constructor() { }
+  subscription: Subscription = new Subscription(); 
 
-  getSingleProduct(id:number):void{
+  //Cart array
+  arrayOfProducts:Array<any> = []; 
 
-//Start add to cart functionality
-    // this.ps.getSingleProduct2(id).subscribe(
-
-    //   (data:any) => {
-    //     let response:String = data.status
-
-    //     this.product = data; 
-    //     console.log(this.product); 
-    //   }, 
-
-    //   //In case of errors set product object to null
-    //   ()=>{
-
-    //   }
-
-    // )
-
-  }
-
+  //product object
+  public product:any = null; 
+ 
+  constructor(private ps:ProductsService) { }
 
   ngOnInit(): void {
+
+    //add each product from service to the array
+    this.subscription = this.ps.currentMessage.subscribe(serviceMessage => this.product = serviceMessage)
+
+
   }
+
+   //function to push new objects into the array
+   pushProductsFromStouts():void{
+
+    this.ps.getSingleProduct(this.input).subscribe(
+      
+      (data:any) => {
+
+        let response:String = data.status
+
+        console.log(response);       
+
+        this.product = data.body; 
+        console.log(this.product);
+
+        this.ps.product = data.body;  //maybe we don't need to send this back to the service
+      }
+  
+    )
+  
+    }
 
 }
