@@ -143,16 +143,16 @@ public class Launcher {
 			System.out.println("Wrong Credentials!");
 		}
 		
-		ProductDAO pDao=new ProductDAO();
-		Product p1=new Product("apple",12,null, 5);
-		pDao.insertProduct(p1);
-		Product p2=new Product("oranges",25,null, 10);
-		pDao.insertProduct(p2);
-		Product p3=new Product("cabbage",10,null, 15);
-		pDao.insertProduct(p3);
+//		ProductDAO pDao=new ProductDAO();
+//		Product p1=new Product("apple",12,null, 5);
+//		pDao.insertProduct(p1);
+//		Product p2=new Product("oranges",25,null, 10);
+//		pDao.insertProduct(p2);
+//		Product p3=new Product("cabbage",10,null, 15);
+//		pDao.insertProduct(p3);
 		
-		List<Product> pl=pDao.getProductByPrice(12);
-		System.out.println(pl);
+//		List<Product> pl=pDao.getProductByPrice(12);
+//		System.out.println(pl);
 		
 //		InventoryDAO iDao=new InventoryDAO();
 //		Inventory inv1=new Inventory( 12,p3 );
@@ -164,11 +164,11 @@ public class Launcher {
 		
 		LocalDate ld=LocalDate.now();
 		
-		CustomerOrder co1=new CustomerOrder(2,12,ld,u1,p1);
-		System.out.println(co1);
-		coDao.insertCustomerOrder(co1);
-		CustomerOrder co2=new CustomerOrder(12,120,ld,u1,p2);
-		coDao.insertCustomerOrder(co2);
+//		CustomerOrder co1=new CustomerOrder(2,12,ld,u1,p1);
+//		System.out.println(co1);
+//		coDao.insertCustomerOrder(co1);
+//		CustomerOrder co2=new CustomerOrder(12,120,ld,u1,p2);
+//		coDao.insertCustomerOrder(co2);
 		UserProfile p=uDAO.getUserProfile("ecross");
 		User u=p.getUser();
 		UserProfile up1=uDAO.getUserProfile("ecross");
