@@ -15,7 +15,31 @@ public class CustomerOrderController {
 	CustomerOrderService coService = new CustomerOrderService();
 	
 	
-	public Handler insertCustomerOrderHandler;
+	public Handler insertCustomerOrderHandler = (ctx) -> {
+		if (ctx.req.getSession() != null) {
+			
+			String body = ctx.body();
+			
+			Gson gson = new Gson();
+			
+			CustomerOrder c = gson.fromJson(body, CustomerOrder.class);
+			
+			System.out.println(c + " this is the customer order that was passed in");
+			
+			String statement = coService.insertCustomerOrder(c);
+			
+			System.out.println("this is the statement from the service layer: " + statement);
+			
+			if (statement == "Success") {
+				ctx.status(202);
+				ctx.result("Customer order successfully added");
+			} else {
+				ctx.status(405);
+				ctx.result("Customer order could not be added!");
+			}
+		}
+		
+	};
 	
 	public Handler getAllCustomerOrdersHandler = (ctx) -> {
 		if (ctx.req.getSession() != null) {

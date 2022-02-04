@@ -11,6 +11,7 @@ public class CustomerOrderService {
 	CustomerOrderDAO coDAO = new CustomerOrderDAO();
 	
 	public String insertCustomerOrder (CustomerOrder CustomerOrder) {
+		System.out.println("this is the customer order from the service layer: " + coDAO.insertCustomerOrder(CustomerOrder));
 		String statement = coDAO.insertCustomerOrder(CustomerOrder);
 		return statement;
 	}

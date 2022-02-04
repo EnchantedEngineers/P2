@@ -93,6 +93,7 @@ public Product getProductById(int id) {
 		return null;
 	}
 }
+
 public Product getProductByName(String name) {
 	
 //	Session ses = HibernateUtil.getSession(); 
