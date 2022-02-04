@@ -34,7 +34,7 @@ public class Launcher {
 	public static void main(String[] args) {
 		
 		
-//		test();
+		test();
 		
 		AddressController ac = new AddressController();
 		CategoryController cc = new CategoryController();
@@ -177,19 +177,19 @@ public class Launcher {
 		coDao.insertCustomerOrder(co1);
 		CustomerOrder co2=new CustomerOrder(12,120,ld,u1,p1);
 		coDao.insertCustomerOrder(co2);
-//		UserProfile p=uDAO.getUserProfile("ecross");
-//		User u=p.getUser();
-//		UserProfile up1=uDAO.getUserProfile("ecross");
-//		 System.out.println("welcome  "+ u.getFirst_name() + " "+u.getLast_name());
-//		for( CustomerOrder r : up1.getOrders())
-//		{ 
-//			System.out.println(" your order : "+ r.getId());
-//			 System.out.println("on  "+ r.getOrder_date());
-//		   System.out.println(" Quantity "+ r.getOrder_quantity());
-//		   System.out.println("total value "+ r.getOrder_total());
-//		
-//		
-//		}
+		UserProfile p=uDAO.getUserProfile("ecross");
+		User u=p.getUser();
+		UserProfile up1=uDAO.getUserProfile("ecross");
+		 System.out.println("welcome  "+ u.getFirst_name() + " "+u.getLast_name());
+		for( CustomerOrder r : up1.getOrders())
+		{ 
+			System.out.println(" your order : "+ r.getId());
+			 System.out.println("on  "+ r.getOrder_date());
+		   System.out.println(" Quantity "+ r.getOrder_quantity());
+		   System.out.println("total value "+ r.getOrder_total());
+		
+		
+		}
 //		
 		//CART AND PRODUCT FUNCTIONALITY START HERE------------------------------------------------------------------------------------------------------------
 		

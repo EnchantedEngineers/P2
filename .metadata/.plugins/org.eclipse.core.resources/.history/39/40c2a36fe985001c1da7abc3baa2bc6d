@@ -34,7 +34,7 @@ public class Launcher {
 	public static void main(String[] args) {
 		
 		
-//		test();
+		test();
 		
 		AddressController ac = new AddressController();
 		CategoryController cc = new CategoryController();

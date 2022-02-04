@@ -1,3 +1,4 @@
+import { ArrayType } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { ProductsService } from 'src/app/services/products.service';
@@ -9,14 +10,19 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class CategoryAleComponent implements OnInit {
 
-  // public input:string="ale"; 
-
   public product:any = null; 
-  public id :number=2;
-  // public pId : number = 0; 
+  public id :number=2; 
+  public itemnumber :Array<number> = [];
+  public quantityAmt :Array<number> = [];
+  // public quantityAmt: number = 0; 
 
-  
+  //pass in id for each product
 
+  //then get that product quantity
+
+  //populate the array 
+
+  //ngFor through the value
 
   constructor(private ps:ProductsService) { }
 
@@ -29,6 +35,15 @@ export class CategoryAleComponent implements OnInit {
 
         this.product = data; 
         console.log(this.product); 
+
+        // for (let quantity of data){
+        //   // let itemnumber2:Array<any> = [0];
+        //   let x =quantity.available_quantity
+        //     this.itemnumber.push(x)
+        //   }
+
+
+        // console.log(this.itemnumber);
       }, 
 
       //In case of errors set product object to null
@@ -40,7 +55,42 @@ export class CategoryAleComponent implements OnInit {
 
   }
 
-   
+  getQuanity(quantity: number){
+
+    this.quantityAmt = [];
+
+    this.ps.getSingleProduct2(quantity).subscribe(
+
+      (data:any) => {
+        let response:String = data.status
+
+        this.product = data; 
+
+        let x =this.product.available_quantity
+
+        for(let y = 1; y <= x; y++){
+          this.quantityAmt.push(y)
+        }
+        
+        console.log(this.product); //This works
+        // console.log(response);
+
+        console.log(this.quantityAmt);
+
+      }, 
+
+      //In case of errors set product object to null
+      ()=>{
+
+        console.log("NO PRODUCT FOUND")
+
+      }
+
+    )
+
+
+  }
+
   getSingleProduct(product_id:any):void{
 
     this.ps.getSingleProduct2(product_id).subscribe(
@@ -72,6 +122,7 @@ export class CategoryAleComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts(); 
+    
   }
 
   
