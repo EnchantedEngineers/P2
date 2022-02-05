@@ -1,11 +1,17 @@
 package com.revature.controllers;
 
+
+import java.util.ArrayList;
 import java.util.List;
+import java.lang.reflect.Type;
+import com.google.gson.reflect.TypeToken;
 
 import com.google.gson.Gson;
+
 import com.revature.models.CustomerOrder;
 import com.revature.models.Product;
 import com.revature.models.User;
+import com.revature.repositories.CustomerOrderDAO;
 import com.revature.services.CustomerOrderService;
 
 import io.javalin.http.Handler;
@@ -13,9 +19,22 @@ import io.javalin.http.Handler;
 public class CustomerOrderController {
 
 	CustomerOrderService coService = new CustomerOrderService();
+	CustomerOrderDAO coDao=new CustomerOrderDAO();
 	
-	
-	public Handler insertCustomerOrderHandler;
+	//public class List<Product> extends ArrayList<Product> {};
+	public Handler insertCustomerOrderHandler=(ctx)->{
+		if (ctx.req.getSession() != null) {
+		String body=ctx.body();
+	 System.out.println(" booddyy "+body);
+		
+		Type listType = new TypeToken<ArrayList<Product>>(){}.getType();
+		List<Product> pList = new Gson().fromJson(body, listType);
+		String suc=coDao.insertCustomerOrder(pList, 1);
+		ctx.result(suc);
+		ctx.status(202);
+		}else { ctx.result("failed in controller");  }
+		
+	};
 	
 	public Handler getAllCustomerOrdersHandler = (ctx) -> {
 		if (ctx.req.getSession() != null) {

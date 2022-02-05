@@ -3,6 +3,7 @@ package com.revature.models;
 
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -25,7 +26,7 @@ public class CustomerOrder {
 	@Column(nullable = false)
 	private int order_quantity; 
 	
-	public CustomerOrder(int order_quantity, double order_total, LocalDate order_date, User user, Product product) {
+	public CustomerOrder(int order_quantity, double order_total, LocalDateTime  order_date, User user, Product product) {
 		super();
 		this.order_quantity = order_quantity;
 		this.order_total = order_quantity * product.getPrice();
@@ -34,7 +35,7 @@ public class CustomerOrder {
 		this.product = product;
 	}
 
-	public CustomerOrder(int id, int order_quantity, double order_total, LocalDate order_date, User user, Product product) {
+	public CustomerOrder(int id, int order_quantity, double order_total, LocalDateTime  order_date, User user, Product product) {
 		super();
 		this.id = id;
 		this.order_quantity = order_quantity;
@@ -102,7 +103,7 @@ public class CustomerOrder {
 		this.id = id;
 	}
 
-	public void setOrder_date(LocalDate order_date) {
+	public void setOrder_date(LocalDateTime order_date) {
 		this.order_date = order_date;
 	}
 
@@ -122,11 +123,11 @@ public class CustomerOrder {
 		this.order_total = order_total;
 	}
 
-	public LocalDate getOrder_date() {
+	public LocalDateTime  getOrder_date() {
 		return order_date;
 	}
 
-	public void setOrder_LocalDate(LocalDate order_date) {
+	public void setOrder_LocalDate(LocalDateTime order_date) {
 		this.order_date = order_date;
 	}
 
@@ -150,7 +151,7 @@ public class CustomerOrder {
 	private double order_total; 
 	
 	@Column(nullable = false)
-	private LocalDate order_date; 
+	private LocalDateTime order_date; 
 	
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id")

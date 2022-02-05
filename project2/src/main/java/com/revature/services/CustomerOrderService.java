@@ -10,10 +10,10 @@ public class CustomerOrderService {
 
 	CustomerOrderDAO coDAO = new CustomerOrderDAO();
 	
-	public String insertCustomerOrder (CustomerOrder CustomerOrder) {
+	/*public String insertCustomerOrder (CustomerOrder CustomerOrder) {
 		String statement = coDAO.insertCustomerOrder(CustomerOrder);
 		return statement;
-	}
+	}*/
 	
 	public List<CustomerOrder> getAllCustomerOrders() {
 		List<CustomerOrder> customerOrderList = coDAO.getAllCustomerOrders();

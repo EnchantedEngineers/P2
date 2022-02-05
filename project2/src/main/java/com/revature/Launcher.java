@@ -1,6 +1,7 @@
 package com.revature;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.NoResultException;
@@ -34,7 +35,16 @@ public class Launcher {
 	public static void main(String[] args) {
 		
 //		test();
-		
+		CustomerOrderDAO coDao=new CustomerOrderDAO();
+		Categories c1 = new Categories("Vegetables"); 
+		Product p1=new Product("cellery",3.00,"",12,c1);
+				Categories c2 = new Categories("Fruits"); 
+		Product p2=new Product("apple",13.00,"",12,c2);
+				List<Product> pl=new ArrayList<>();
+		pl.add(p1); 	pl.add(p2);
+		//String ss=coDao.insertCustomerOrder(pl, 1);
+				
+		//System.out.println(ss);
 		AddressController ac = new AddressController();
 		CategoryController cc = new CategoryController();
 		CustomerOrderController co = new CustomerOrderController();
@@ -60,7 +70,7 @@ public class Launcher {
 //		app.get("/order/ordertotal/{ordertotal}", co.getCustomerOrderByOrderTotalHandler);
 //		app.get("/order/orderdate/{orderdate}", co.getCustomerOrderByOrderDateHandler);
 		app.get("/order/{id}", co.getCustomerOrderByUserIdHandler);
-//		app.post("/order/insert", co.insertCustomerOrderHandler);
+   	app.post("/order", co.insertCustomerOrderHandler);
 		//=========================================INVENTORYSERVICE=========================================
 //		app.get("/inventory", ic.getAllInventoryHandler);
 //		app.post("/inventory", ic.insertInventoryHandler);
