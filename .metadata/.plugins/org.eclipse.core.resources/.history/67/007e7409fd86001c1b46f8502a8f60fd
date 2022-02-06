@@ -10,10 +10,9 @@ public class UserService {
 	
 	UserDAO uDAO = new UserDAO();
 	
-	public User insertUser (User user) {
-//		String statement = uDAO.insertUser(user);
-//		return statement;
-		return uDAO.insertUser(user);
+	public String insertUser (User user) {
+		String statement = uDAO.insertUser(user);
+		return statement;
 	}
 	
 	public User getUserByUserName(String username) {

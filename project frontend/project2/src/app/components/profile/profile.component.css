@@ -1,0 +1,18 @@
+#registerationBox{
+
+  border-color: rgb(3, 80, 22);
+  margin:10px;
+  padding:10px;
+
+  border-radius: 1em;
+  border-width: 2pt;
+  border-style:dotted;
+
+}
+
+body{
+  background: "../assets/beerdisplay.jpg";
+
+}
+
+
