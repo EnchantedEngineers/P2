@@ -35,8 +35,14 @@ public class Launcher {
 	public static void main(String[] args) {
 		
 //		test();
-
-
+		CustomerOrderDAO coDao=new CustomerOrderDAO();
+		Categories c1 = new Categories("Vegetables"); 
+		Product p1=new Product("cellery",3.00,"",12,c1);
+				Categories c2 = new Categories("Fruits"); 
+		Product p2=new Product("apple",13.00,"",12,c2);
+				List<Product> pl=new ArrayList<>();
+		pl.add(p1); 	pl.add(p2);
+		//String ss=coDao.insertCustomerOrder(pl, 1);
 				
 		//System.out.println(ss);
 		AddressController ac = new AddressController();
@@ -46,7 +52,6 @@ public class Launcher {
 		UserController uc = new UserController();
 		ProductController pc = new ProductController();
 		PaymentController payC = new PaymentController(); 
-
 		
 		
 		
@@ -65,7 +70,7 @@ public class Launcher {
 //		app.get("/order/ordertotal/{ordertotal}", co.getCustomerOrderByOrderTotalHandler);
 //		app.get("/order/orderdate/{orderdate}", co.getCustomerOrderByOrderDateHandler);
 		app.get("/order/{id}", co.getCustomerOrderByUserIdHandler);
-		app.post("/order", co.insertOrderItemHandler);
+   	app.post("/order", co.insertOrderItemHandler);
 		//=========================================INVENTORYSERVICE=========================================
 //		app.get("/inventory", ic.getAllInventoryHandler);
 //		app.post("/inventory", ic.insertInventoryHandler);
@@ -232,15 +237,10 @@ public class Launcher {
 
 		      
 //		     CtDAO.deleteCartContentsByCartId(1);
-
-//				CustomerOrderDAO coDao=new CustomerOrderDAO();
-//				Categories c1 = new Categories("Vegetables"); 
-//				Product p1=new Product("cellery",3.00,"",12,c1);
-//						Categories c2 = new Categories("Fruits"); 
-//				Product p2=new Product("apple",13.00,"",12,c2);
-//						List<Product> pl=new ArrayList<>();
-//				pl.add(p1); 	pl.add(p2);
-				//String ss=coDao.insertCustomerOrder(pl, 1);
+		     
+		 //  Felix's addition ended
+		     
+//CART AND PRODUCT FUNCTIONALITY END START HERE------------------------------------------------------------------------------------------------------------
 		
 	}
 

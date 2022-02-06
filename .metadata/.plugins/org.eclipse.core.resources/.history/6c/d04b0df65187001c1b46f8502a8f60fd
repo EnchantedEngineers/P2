@@ -21,7 +21,6 @@ public class CustomerOrderController {
 
 	CustomerOrderService coService = new CustomerOrderService();
 	CustomerOrderDAO coDao=new CustomerOrderDAO();
-	
 	public Handler insertOrderItemHandler=(ctx)->{
 		if (ctx.req.getSession() != null) {
 		String body=ctx.body();

@@ -46,7 +46,7 @@ public class Launcher {
 		UserController uc = new UserController();
 		ProductController pc = new ProductController();
 		PaymentController payC = new PaymentController(); 
-
+		CustomerOrderDAO coDao=new CustomerOrderDAO();
 		
 		
 		
@@ -65,7 +65,7 @@ public class Launcher {
 //		app.get("/order/ordertotal/{ordertotal}", co.getCustomerOrderByOrderTotalHandler);
 //		app.get("/order/orderdate/{orderdate}", co.getCustomerOrderByOrderDateHandler);
 		app.get("/order/{id}", co.getCustomerOrderByUserIdHandler);
-		app.post("/order", co.insertOrderItemHandler);
+   	app.post("/order", co.insertOrderItemHandler);
 		//=========================================INVENTORYSERVICE=========================================
 //		app.get("/inventory", ic.getAllInventoryHandler);
 //		app.post("/inventory", ic.insertInventoryHandler);
@@ -233,7 +233,7 @@ public class Launcher {
 		      
 //		     CtDAO.deleteCartContentsByCartId(1);
 
-//				CustomerOrderDAO coDao=new CustomerOrderDAO();
+
 //				Categories c1 = new Categories("Vegetables"); 
 //				Product p1=new Product("cellery",3.00,"",12,c1);
 //						Categories c2 = new Categories("Fruits"); 

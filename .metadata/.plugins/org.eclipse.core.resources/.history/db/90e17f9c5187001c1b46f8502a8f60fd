@@ -46,7 +46,6 @@ public List<Product> getAllProducts() {
 	HibernateUtil.closeSession(); 
 	return productList;	
 }
-
 public List<Product> getProductByPrice(double price) {
 	
 	Session ses = HibernateUtil.getSession(); 
