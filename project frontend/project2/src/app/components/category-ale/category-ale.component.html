@@ -21,6 +21,7 @@
                 <img src="{{ps.image}}">
                 <div class="name"><b>{{ps.name}}</b></div>
                 <div class="quantity">Quantity Left: <b>{{ps.available_quantity}}</b></div>
+                <div class="quantity">Quantity to purchase: <input type="text" [value]='quantity_to_purchase'/></div>
                 <div class="price">Price: <b>${{ps.price}}</b></div>
                 <!-- <button (click)="getSingleProduct(p.id)">View Product</button> -->
                 <button (click)="getSingleProduct(ps.id1)">Add to Cart</button>
