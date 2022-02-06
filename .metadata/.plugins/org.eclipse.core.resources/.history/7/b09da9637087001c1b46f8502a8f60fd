@@ -145,17 +145,15 @@ session.close();
 	}
 	
 	//Calculate customer order total
-//	public double getCustomerOrderTotal (LocalDate dateOfPurchase, User userId) {
-//		
-//		Session ses = HibernateUtil.getSession(); 
-//		
-//		Query q = ses.createQuery("FROM CustomerOrder cu where cu.order_date=?0 and cu.user.user_id=?1"); 
-//		q.setParameter(0, dateOfPurchase);
-//		q.setParameter(1, userId);
-//		
-//		
-//		return 0;
-//		
-//	}
+	public double getCustomerOrderTotal (LocalDate dateOfPurchase, User userforPurchase) {
+		
+		Session ses = HibernateUtil.getSession(); 
+		
+		Query q = ses.createQuery("FROM CustomerOrder cu where cu."); 
+		
+		
+		return 0;
+		
+	}
 
 }
