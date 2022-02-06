@@ -74,6 +74,13 @@ export class CategoryAleComponent implements OnInit {
     this.getProducts(); 
   }
 
+
+url: string = "../assets/budlight.png";
+changeImage(event: any){
+  this.url = event.target.src;
+  console.log();
+}
+
   
 
 }

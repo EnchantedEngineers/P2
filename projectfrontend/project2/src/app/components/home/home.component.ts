@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
+  constructor(){}
+ngOnInit(){}
+url: string = "../assets/budlight.png";
+changeImage(event: any){
+  this.url = event.target.src;
+  console.log();
+}
 
 }

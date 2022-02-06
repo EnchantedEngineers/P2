@@ -68,5 +68,10 @@ export class CategoryStoutComponent implements OnInit {
 
   ngOnInit(): void { this.getProducts()
   }
+  url: string = "../assets/budlight.png";
+changeImage(event: any){
+  this.url = event.target.src;
+  console.log();
+}
 
 }

@@ -7,11 +7,18 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  ps: any;
 
-  constructor(private ps: ProductsService) { }
 
-  ngOnInit(): void {
+  constructor() { }
+  activeClass=false;
+
+  ngOnInit(): void {}
+
+  toggleClass(){
+    this.activeClass=!this.activeClass
   }
+
 
   username: string = "";
   password: string = "";
