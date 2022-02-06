@@ -25,19 +25,13 @@ public class UserController {
 		
 		User user = gson.fromJson(body, User.class);
 		
-		User u = uService.insertUser(user);
-		
-//		String statement = uService.insertUser(user);
+		String statement = uService.insertUser(user);
 
-//		System.out.println(statement);
+		System.out.println(statement);
 		
-		if (u != null) {
+		if (statement == "Success") {
 			ctx.status(200);
 			ctx.result("Registration Successful!");
-		
-//		if (statement == "Success") {
-//			ctx.status(200);
-//			ctx.result("Registration Successful!");
 		} else {
 			ctx.status(404);
 			ctx.result("Registration Failed!");
