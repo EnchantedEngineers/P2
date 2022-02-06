@@ -1,2 +1,7 @@
 
 .metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log
+.metadata/.log
+.metadata/.plugins/org.eclipse.jdt.ui/jdt-images/12.png
+*.png
+*.log
+.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
