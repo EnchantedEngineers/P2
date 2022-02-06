@@ -12,22 +12,9 @@ import { Address } from '../models/Address';
 })
 export class ProductsService {
 
+  getAllProducts :Array<Product> = [];
+
   constructor(private http:HttpClient) { }
-
-  getProductsFromApiAle():Observable<Product[]>{
-
-    console.log(this.http.get("https://api.sampleapis.com/beers/ale"));
-
-    return this.http.get("https://api.sampleapis.com/beers/ale/") as Observable<Product[]>
-  } //Create two methods to handle each different category
-
-  getProductsFromApiStouts():Observable<Product[]>{
-
-    return this.http.get("https://api.sampleapis.com/beers/stouts/") as Observable<Product[]>
-  }
-
-
-
 
   getProducts(id:number):Observable<Array<Product>>{
     return this.http.get("http://localhost:3000/product/category/" + id) as Observable<Array<Product>>
@@ -38,13 +25,19 @@ export class ProductsService {
     return user;
   }
 
+
  Register(username:string, password:string, firstname:string, lastname:string, email_address:string, address:Address ):Observable<Register>{
-   /** Register(username:string, password:string, firstname:string, lastname:string, email_address:string, address:string, city:string, state:string, country:string, postal_code:number ):Observable<Register>{
- */
+
   let profile: Observable<Register> = this.http.post<Register>("http://localhost:3000/user/insert", {username, password, firstname, lastname, email_address, address}) as Observable<Register>;
-    /**    let profile: Observable<Register> = this.http.post<Register>("http://localhost:3000/user/insert", {username, password, firstname, lastname, email_address, address, city, state, country, postal_code}) as Observable<Register>;
- */
+
     return profile;
   }
+
+  getSingleProduct2(id:number):Observable<Product>{
+
+    return this.http.get("http://localhost:3000/product/" + id) as Observable<Product>;
+  }
+
+
 
 }
