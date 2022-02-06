@@ -38,7 +38,6 @@ INDEX VERSION 1.131+C:\Users\jenea\OneDrive\02-RevaturePaidInternship\Projects-F
 798988283.index
 879101657.index
 1793230992.index
-1241889543.index
 1155040247.index
 2145907387.index
 3391525434.index
