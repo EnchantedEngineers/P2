@@ -9,6 +9,7 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.Gson;
 
 import com.revature.models.CustomerOrder;
+import com.revature.models.OrderItemDTO;
 import com.revature.models.Product;
 import com.revature.models.User;
 import com.revature.repositories.CustomerOrderDAO;
@@ -20,9 +21,23 @@ public class CustomerOrderController {
 
 	CustomerOrderService coService = new CustomerOrderService();
 	CustomerOrderDAO coDao=new CustomerOrderDAO();
-	
+	public Handler insertOrderItemHandler=(ctx)->{
+		if (ctx.req.getSession() != null) {
+		String body=ctx.body();
+	 System.out.println(" booddyy "+body);
+		
+		Type listType = new TypeToken<ArrayList<OrderItemDTO>>(){}.getType();
+		List<OrderItemDTO> oList = new Gson().fromJson(body, listType);
+		String suc=coDao.insertCustomerOrder(oList);
+		if(suc!=null)
+		{ctx.result(suc);
+		ctx.status(202);
+		}
+		}else { ctx.result("failed in controller"); ctx.status(403); }
+		
+	};
 	//public class List<Product> extends ArrayList<Product> {};
-	public Handler insertCustomerOrderHandler=(ctx)->{
+	/*public Handler insertCustomerOrderHandler=(ctx)->{
 		if (ctx.req.getSession() != null) {
 		String body=ctx.body();
 	 System.out.println(" booddyy "+body);
@@ -34,7 +49,7 @@ public class CustomerOrderController {
 		ctx.status(202);
 		}else { ctx.result("failed in controller");  }
 		
-	};
+	};*/
 	
 	public Handler getAllCustomerOrdersHandler = (ctx) -> {
 		if (ctx.req.getSession() != null) {

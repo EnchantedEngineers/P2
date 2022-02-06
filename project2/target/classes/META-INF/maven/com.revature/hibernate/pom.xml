@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.revature</groupId>
+  <artifactId>hibernate</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+  	<maven.compiler.target>1.8</maven.compiler.target>
+  	<maven.compiler.source>1.8</maven.compiler.source>
+  </properties>
+  
+
+  <dependencies>
+  
+  <dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.14</version>
+	</dependency>
+		
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+	<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.4.26.Final</version>
+	</dependency>
+  
+  <!-- This dependency will let us have javalin -->
+		<dependency>
+			<groupId>io.javalin</groupId>
+			<artifactId>javalin</artifactId>
+			<version>4.1.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.5</version>
+		</dependency>
+  
+  </dependencies>
+</project>

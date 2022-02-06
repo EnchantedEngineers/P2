@@ -70,7 +70,7 @@ public class Launcher {
 //		app.get("/order/ordertotal/{ordertotal}", co.getCustomerOrderByOrderTotalHandler);
 //		app.get("/order/orderdate/{orderdate}", co.getCustomerOrderByOrderDateHandler);
 		app.get("/order/{id}", co.getCustomerOrderByUserIdHandler);
-   	app.post("/order", co.insertCustomerOrderHandler);
+   	app.post("/order", co.insertOrderItemHandler);
 		//=========================================INVENTORYSERVICE=========================================
 //		app.get("/inventory", ic.getAllInventoryHandler);
 //		app.post("/inventory", ic.insertInventoryHandler);

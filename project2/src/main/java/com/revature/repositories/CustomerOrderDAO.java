@@ -11,6 +11,7 @@ import javax.transaction.Transaction;
 import org.hibernate.Session;
 
 import com.revature.models.CustomerOrder;
+import com.revature.models.OrderItemDTO;
 import com.revature.models.Product;
 import com.revature.models.User;
 import com.revature.util.HibernateUtil;
@@ -35,21 +36,29 @@ for ( int i=0; i<100000; i++ ) {
 tx.commit();
 session.close();
 	 */
-	public String insertCustomerOrder(List<Product> p, int userId) {
+	public String insertCustomerOrder(List<OrderItemDTO> o) {
 	
 		UserDAO udao = new UserDAO();
+		ProductDAO pdao=new ProductDAO();
 		try {
 			
-			
+			int userId=o.get(0).getUserid();
 			User u = udao.getUserById(userId);
 			LocalDateTime d = LocalDateTime.now();
 			Session ses = HibernateUtil.getSession();
 			org.hibernate.Transaction tx = ses.beginTransaction();
-
-			for (Product c : p) 
+            int indx=0;
+			for (OrderItemDTO c : o) 
 			{
-				//ses.beginTransaction();
-				CustomerOrder co = new CustomerOrder(1, c.getPrice(), d, u, c);
+				Product p=pdao.getProductById(c.getProductid());
+				 ses = HibernateUtil.getSession();
+				tx = ses.beginTransaction();
+				System.out.println("product " +p);
+						indx++;
+						double prc=p.getPrice();
+						int amnt=c.getPurchase_amount();
+						double total=prc*amnt;
+				CustomerOrder co = new CustomerOrder(c.getPurchase_amount(), total, d, u, p);
 				ses.save(co);
 				ses.flush();ses.clear();
 			}
