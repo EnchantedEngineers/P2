@@ -1,211 +1,81 @@
+<section>
+  <div class="container">
 
-
-<div class="a-section a-padding-medium auth-workflow">
-  <div class="a-section a-spacing-none auth-navbar">
-
-    <div class="a-section a-spacing-medium a-text-center">
-
-
-    </div>
-
-
-    <div id="authportal-center-section" class="a-section">
-
-      <div id="authportal-main-section" class="a-section">
-
-        <div class="a-section a-spacing-base auth-pagelet-container">
-
-          <div id="auth-cookie-warning-message" class="a-box a-alert a-alert-warning" aria-live="polite"
-            aria-atomic="true">
-            <div class="a-box-inner a-alert-container">
-              <div class="a-alert-content">
-
-              </div>
-            </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+        <div class="row">
+          <div class="col text-center">
+            <h1>Register</h1>
+            <p class="text-h3">Register for an Enchanted Stores Account Below</p>
           </div>
-
         </div>
-
-        <div class="a-section auth-pagelet-container">
-
-
-          <!-- Show a warning modal dialog when the third party account is connected with Amazon -->
-
-          <div class="a-section">
-            <form id="ap_register_form"  #addForm="ngForm">
-
-
-              <div class="a-box a-spacing-extra-large">
-
-                <div class="row  justify-content">
-
-                  <div class="col"></div>
-                  <div class="col"></div>
-                  <div class="col"></div>
-
-
-                  <div class="col" id="registerationBox">
-                    <h4 class="a-spacing-small  d-flex justify-content-center">
-                      Create account
-                    </h4>
-
-                    <div class="a-row a-spacing-base  d-flex justify-content-center">
-
-                      <label for="ap_username" class="a-form-label text-align-center">
-                        username
-                      </label>
-
-                    </div>
-                    <div class="a-section  d-flex justify-content-center ">
-
-                      <input type="username" [(ngModel)]="username" name="username" maxlength="64" id="ap_username" autocomplete="email"
-                        name="email" tabindex="3"
-                        class="a-input-text a-span12 a-spacing-micro auth-required-field auth-require-claim-validation">
-
-                    </div>
-                    <div>
-                      <label for="ap_password" class="a-form-label  d-flex justify-content-center">
-                        password
-                      </label>
-                    </div>
-
-                    <div class="a-section  d-flex justify-content-center">
-
-                      <input type="password" [(ngModel)]="password" name="password" maxlength="64" id="ap_password" autocomplete="email"
-                        name="email" tabindex="3"
-                        class="a-input-text a-span12 a-spacing-micro auth-required-field auth-require-claim-validation">
-
-                    </div>
-                    <div>
-                      <label for="ap_firstname" class="a-form-label  d-flex justify-content-center">
-                        firstname
-                      </label>
-                    </div>
-
-
-                    <div class="a-section  d-flex justify-content-center">
-
-                      <input type="firstname" [(ngModel)]="firstname" name="firstname" maxlength="64" id="ap_firstname"
-                        autocomplete="email" name="email" tabindex="3"
-                        class="a-input-text a-span12 a-spacing-micro auth-required-field auth-require-claim-validation">
-
-                    </div>
-                    <div>
-                      <label for="ap_lastname" class="a-form-label  d-flex justify-content-center">
-                        last name
-                      </label>
-                    </div>
-
-                    <div class="a-section  d-flex justify-content-center">
-
-                      <input type="lastname" [(ngModel)]="lastname" name="lastname" maxlength="64" id="ap_lastname" autocomplete="email"
-                        name="email" tabindex="3"
-                        class="a-input-text a-span12 a-spacing-micro auth-required-field auth-require-claim-validation">
-
-                    </div>
-                    <div>
-                      <label for="ap_email" class="a-form-label  d-flex justify-content-center">
-                        email address
-                      </label>
-                    </div>
-
-                    <div class="a-section  d-flex justify-content-center">
-
-                      <input type="email" [(ngModel)]="email_address" name="email_address" maxlength="64" id="ap_email" autocomplete="email"
-                        name="email" tabindex="3"
-                        class="a-input-text a-span12 a-spacing-micro auth-required-field auth-require-claim-validation">
-
-                    </div>
-
-                    <div>
-                      <label for="ap_email" class="a-form-label  d-flex justify-content-center">
-                        address
-                      </label>
-                    </div>
-
-                    <div class="a-section  d-flex justify-content-center">
-
-                      <input type="address 2" [(ngModel)]="address" name="address.address" maxlength="64" id="ap_address2"
-                        autocomplete="address" name="address" tabindex="3"
-                        class="a-input-text a-span12 a-spacing-micro auth-required-field auth-require-claim-validation">
-
-                    </div>
-                    <div>
-                      <label for="ap_cty" class="a-form-label  d-flex justify-content-center">
-                        city
-                      </label>
-                    </div>
-
-                    <div class="a-section  d-flex justify-content-center">
-
-                      <input type="city" [(ngModel)]="address.city" name="city" maxlength="64" id="ap_cityl" autocomplete="city" name="city"
-                        tabindex="3"
-                        class="a-input-text a-span12 a-spacing-micro auth-required-field auth-require-claim-validation">
-
-                    </div>
-                    <div>
-                      <label for="ap_state" class="a-form-label  d-flex justify-content-center">
-                        state
-                      </label>
-                    </div>
-
-                    <div class="a-section  d-flex justify-content-center">
-
-                      <input type="email" [(ngModel)]="address.state" name="state" maxlength="64" id="ap_state" autocomplete="state"
-                        name="state" tabindex="3"
-                        class="a-input-text a-span12 a-spacing-micro auth-required-field auth-require-claim-validation">
-
-                    </div>
-                    <div>
-                      <label for="ap_country" class="a-form-label  d-flex justify-content-center">
-                        country
-                      </label>
-                    </div>
-
-                    <div class="a-section  d-flex justify-content-center">
-
-                      <input type="email" [(ngModel)]="address.country" name="country" maxlength="64" id="ap_country" autocomplete="country"
-                        name="country" tabindex="3"
-                        class="a-input-text a-span12 a-spacing-micro auth-required-field auth-require-claim-validation"
-                        data-validation-id="email">
-
-                    </div>
-                    <div>
-                      <label for="ap_email" class="a-form-label  d-flex justify-content-center">
-                        postal_code
-                      </label>
-                    </div>
-                    <div class="a-section  d-flex justify-content-center">
-
-                      <input type="email" [(ngModel)]="address.postal_code" name="postal_code" maxlength="64" id="ap_postal_code"
-                        autocomplete="postal_code" name="postal_code" tabindex="3"
-                        class="a-input-text a-span12 a-spacing-micro auth-required-field auth-require-claim-validation">
-
-                    </div>
-                    <br />
-                    <div class="d-flex justify-content-center">
-                      <br />
-                      <button (click)="Register()"  class="btn btn-primary  d-flex justify-content-center"><b>Submit</b></button>
-
-
-                    </div>
-                    <div>
-                      <label for="ap_email" class="a-form-label  d-flex justify-content-center">
-                        Aleady Have an account?
-                      </label>
-                      <a [routerLink]="['/login']" class="nav-link row  d-flex justify-content-center">
-                        Sign-in
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col"> </div>
-                  <div class="col"></div>
-                </div>
-              </div>
-            </form>
+        <!-- Username -->
+        <div class="row align-items-center">
+          <div class="col mt-4">
+            <input type="text" class="form-control" placeholder="Username" [(ngModel)]="username">
+          </div>
+        </div>
+        <!-- Password -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password">
+          </div>
+        </div>
+        <!-- Email -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="email" class="form-control" placeholder="Email" [(ngModel)]="email_address">
+          </div>
+        </div>
+        <!-- First name -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="first_name">
+          </div>
+        </div>
+        <!-- Last name -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="last_name">
+          </div>
+        </div>
+        <!-- Address  -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Street Address" [(ngModel)]="address.address_1">
+          </div>
+        </div>
+        <!-- city -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="City" [(ngModel)]="address.city">
+          </div>
+        </div>
+        <!-- state -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="State" [(ngModel)]="address.state">
+            <!--Change to dropdown if time-->
+          </div>
+        </div>
+        <!-- country -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Country" [(ngModel)]="address.country">
+          </div>
+        </div>
+        <!-- postal code -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Zip Code" [(ngModel)]="address.postal_code">
+          </div>
+        </div>
+        <div class="row justify-content-start mt-4">
+          <div class="col">
+            <button class="btn btn-primary mt-4" (click)="Register()">Submit</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>

@@ -38,12 +38,8 @@ export class ProductsService {
     return user;
   }
 
- Register(username:string, password:string, firstname:string, lastname:string, email_address:string, address:Address ):Observable<Register>{
-   /** Register(username:string, password:string, firstname:string, lastname:string, email_address:string, address:string, city:string, state:string, country:string, postal_code:number ):Observable<Register>{
- */
-  let profile: Observable<Register> = this.http.post<Register>("http://localhost:3000/user/insert", {username, password, firstname, lastname, email_address, address}) as Observable<Register>;
-    /**    let profile: Observable<Register> = this.http.post<Register>("http://localhost:3000/user/insert", {username, password, firstname, lastname, email_address, address, city, state, country, postal_code}) as Observable<Register>;
- */
+ Register(username:string, password:string, first_name:string, last_name:string, email_address:string, address:Address):Observable<Register>{
+  let profile: Observable<Register> = this.http.post<Register>("http://localhost:3000/user/insert", {username, password, first_name, last_name, email_address, address}) as Observable<Register>;
     return profile;
   }
 
