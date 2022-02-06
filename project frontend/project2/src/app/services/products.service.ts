@@ -3,12 +3,16 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';
 import { Login } from '../models/login';
+
+
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  getAllProducts :Array<Product> = [];
+  public getAllProducts :Array<Product> = [];
 
   constructor(private http:HttpClient) { }
 
@@ -25,6 +29,7 @@ export class ProductsService {
 
     return this.http.get("http://localhost:3000/product/" + id) as Observable<Product>;
   }
-
+  
+  
 
 }

@@ -13,6 +13,7 @@ export class CategoryAleComponent implements OnInit {
 
   public product:any = null; 
   public id :number=2;
+  public quantity_to_purchase:Number=1;
   // public pId : number = 0; 
 
   
