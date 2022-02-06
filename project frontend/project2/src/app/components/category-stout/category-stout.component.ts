@@ -36,6 +36,36 @@ export class CategoryStoutComponent implements OnInit {
 
   }
 
+  getSingleProduct(product_id:any):void{
+
+    this.ps.getSingleProduct2(product_id).subscribe(
+
+      (data:any) => {
+        let response:String = data.status
+
+        this.product = data; 
+
+        this.ps.getAllProducts.push(this.product); 
+
+        // this.getAllProducts.push(this.product); 
+
+        console.log(this.product); //This works
+        // console.log(response);
+
+
+      }, 
+
+      //In case of errors set product object to null
+      ()=>{
+
+        console.log("NO PRODUCT FOUND")
+
+      }
+
+    )
+
+  }
+
   ngOnInit(): void { this.getProducts()
   }
 
