@@ -9,14 +9,8 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class CategoryAleComponent implements OnInit {
 
-  // public input:string="ale"; 
-
   public product:any = null; 
   public id :number=2;
-  // public pId : number = 0; 
-
-  
-
 
   constructor(private ps:ProductsService) { }
 
@@ -25,8 +19,9 @@ export class CategoryAleComponent implements OnInit {
       this.ps.getProducts(this.id).subscribe(
       (data:any) => {
         let response:String = data.status
-
+        
         this.product = data; 
+
         console.log(this.product); 
       }, 
 
@@ -39,20 +34,25 @@ export class CategoryAleComponent implements OnInit {
 
   }
 
-   
   getSingleProduct(product_id:any):void{
-
+    
     this.ps.getSingleProduct2(product_id).subscribe(
 
       (data:any) => {
         let response:String = data.status
-
         this.product = data; 
+        let valueid = this.product.id1;
+        let valuequantity = this.product.available_quantity;
 
+      
+        let index = this.ps.getAllProducts.findIndex(object => object.id1 === valueid);
+        if (index === -1){
+        if (valuequantity != 0){
         this.ps.getAllProducts.push(this.product); 
-
-        console.log(this.product); //This works
-        // console.log(response);
+        }
+      }
+        
+        console.log(this.product); 
 
         console.log(this.ps.getAllProducts);
 
