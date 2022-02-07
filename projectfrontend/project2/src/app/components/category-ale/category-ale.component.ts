@@ -21,8 +21,7 @@ export class CategoryAleComponent implements OnInit {
   constructor(private ps:ProductsService) { }
 
   getProducts():void{
-
-    // this.ps.getProductsFromApiAle().subscribe(
+    
       this.ps.getProducts(this.id).subscribe(
       (data:any) => {
         let response:String = data.status
