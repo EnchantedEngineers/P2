@@ -14,6 +14,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.google.gson.Gson;
 @Entity
 @Table(name="customer_orders")
 public class CustomerOrder {
@@ -25,7 +27,7 @@ public class CustomerOrder {
 	@Column(nullable = false)
 	private int order_quantity; 
 	
-	public CustomerOrder(int order_quantity, double order_total, LocalDate order_date, User user, Product product) {
+	public CustomerOrder(int order_quantity, double order_total, LocalDate order_date, User user, Product product) {  //should this product be a list of products?
 		super();
 		this.order_quantity = order_quantity;
 		this.order_total = order_quantity * product.getPrice();

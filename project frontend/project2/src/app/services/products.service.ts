@@ -7,6 +7,8 @@ import { Login } from '../models/login';
   providedIn: 'root'
 })
 export class ProductsService {
+  
+  getAllProducts :Array<Product> = [];
 
   constructor(private http:HttpClient) { }
 
@@ -23,5 +25,6 @@ export class ProductsService {
 
     return this.http.get("http://localhost:3000/product/" + id) as Observable<Product>;
   }
+
 
 }

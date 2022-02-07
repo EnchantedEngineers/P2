@@ -1,29 +1,22 @@
 
 <div class="container">
 
-    
-    <!-- <div class="row">
-        <div class="col-lg-4" *ngFor="let p of product" >
-            <div class="a-section a-spacing-mini _p13n-zg-list-carousel-desktop_maskStyle_noop__3Xbw5" >
-                <img src="{{p.image}}" alt="image of ale" onerror="this.src='https://www.totalwine.com/media/sys_master/twmmedia/h0a/h17/11589987434526.png'">
-                <div class="name">{{p.name}}</div>
-                <div class="price">{{p.price}}</div>
-                </div>
-
-        </div>
-    </div> -->
-
-
     <div class="row">
-        <div class="col-lg-4" *ngFor="let ps of product" >
+        <div class="col-lg-4" *ngFor="let ps of product" (mouseover)="getQuanity(ps.id1)">
             <div class="a-section a-spacing-mini _p13n-zg-list-carousel-desktop_maskStyle_noop__3Xbw5" >
                 <div class = "border">
                 <img src="{{ps.image}}">
                 <div class="name"><b>{{ps.name}}</b></div>
-                <div class="quantity">Quantity Left: <b>{{ps.available_quantity}}</b></div>
+                <div class="quantity" [(ngModel)] = "ps.available_quantity">Quantity Left:<b>{{ps.available_quantity}}</b></div>
                 <div class="price">Price: <b>${{ps.price}}</b></div>
                 <!-- <button (click)="getSingleProduct(p.id)">View Product</button> -->
-                <button (click)="getSingleProduct(ps.product_id)">Add to Cart</button>
+                <span *ngFor="let p of quantityAmt"> 
+                    <!-- <select>
+                        <option value="">Select Quantity</option>  
+                        <option value="" *ngFor="let q of quantityAmt let i = index">{{q}}</option>   
+                    </select> -->
+                <button (click)="getSingleProduct(ps.id1)">Add to Cart</button>
+            </span>
                 </div>
                 </div>
   
