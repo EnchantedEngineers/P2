@@ -1,4 +1,5 @@
 <div>
+    
     <!-- Please fix style of this table -->
     <table>
         <thead>
@@ -17,12 +18,13 @@
                 <td>{{ps.price}}</td>
                 <!-- I have a propert called quantity_to_purchase in cart.component.ts-->
                 <!-- i want to asign to that propert what is in text box when I click the button-->
-                <td><input type="text" name="quantity_to_purchase" #quantity_to_purchase/></td>
-                <td><button (click)="remove(2)">remove</button></td>
+                <td><input  type="number" id = "quantity"/></td>
+                <td><input  type="button" (click) = "remove(ps.id1)"/>remove</td>
+               
               
             </tr>
     
         </tbody>
       </table>
-      <button (click)='checout()'>check out</button>
+      <button >check out</button>
 </div>

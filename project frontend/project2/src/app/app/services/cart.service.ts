@@ -11,10 +11,17 @@ import { OrderItem } from 'src/app/models/OrderItem';
   providedIn: 'root'
 })
 export class CartService {
+  
 
   public orderItems :Array<OrderItem> = [];
 
-  //constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) { }
+
+  placeOrder(order:Array<OrderItem>):Observable<Array<OrderItem>>{
+
+    let  orders: Observable<Array<OrderItem>> = this.http.post(" ",order) as Observable<Array<OrderItem>> ;
+    return orders;
+  }
 
   addToCart(productItem:OrderItem):void{
       this.orderItems.push(productItem);

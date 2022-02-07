@@ -16,8 +16,9 @@ import { CategoryAleComponent } from './components/category-ale/category-ale.com
 import { SingleProductComponent } from './components/single-product/single-product.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
-
+//IvyCarouselModule
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,7 @@ import { LoginComponent } from './components/login/login.component';
     CategoryStoutComponent,
     CategoryAleComponent,
     SingleProductComponent,
-    LoginComponent,
+    LoginComponent
     
   ],
   imports: [
@@ -38,7 +39,12 @@ import { LoginComponent } from './components/login/login.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    CarouselModule
+    
+  
+    
+    
     
   ],
   providers: [],
