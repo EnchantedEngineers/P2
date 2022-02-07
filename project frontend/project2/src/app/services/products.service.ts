@@ -3,6 +3,10 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../models/product';
 import { Login } from '../models/login';
+import { Register } from '../models/profile';
+import { Variable } from '@angular/compiler/src/render3/r3_ast';
+import { Address } from '../models/Address';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -32,6 +36,15 @@ export class ProductsService {
   login(username:string, password:string):Observable<Login>{
     let user: Observable<Login> = this.http.post<Login>("http://localhost:3000/user", {username, password}) as Observable<Login>;
     return user;
+  }
+
+ Register(username:string, password:string, firstname:string, lastname:string, email_address:string, address:Address ):Observable<Register>{
+   /** Register(username:string, password:string, firstname:string, lastname:string, email_address:string, address:string, city:string, state:string, country:string, postal_code:number ):Observable<Register>{
+ */
+  let profile: Observable<Register> = this.http.post<Register>("http://localhost:3000/user/insert", {username, password, firstname, lastname, email_address, address}) as Observable<Register>;
+    /**    let profile: Observable<Register> = this.http.post<Register>("http://localhost:3000/user/insert", {username, password, firstname, lastname, email_address, address, city, state, country, postal_code}) as Observable<Register>;
+ */
+    return profile;
   }
 
 }
