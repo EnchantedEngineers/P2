@@ -12,7 +12,23 @@ import { Address } from '../models/Address';
 })
 export class ProductsService {
 
+  userObject: any = null; 
+
+  username: string = "";
+  password: string = "";
+  first_name: string = "";
+  last_name: string = "";
+  email_address: string = "";
+  address: Address = {
+    address_1: '',
+    city: '',
+    state: '',
+    country: '',
+    postal_code: ''
+  } ;
+
   getAllProducts :Array<Product> = [];
+  getUser: Array<Login> = []; 
 
   constructor(private http:HttpClient) { }
 
@@ -21,8 +37,11 @@ export class ProductsService {
   }
 
   login(username:string, password:string):Observable<Login>{
-    let user: Observable<Login> = this.http.post<Login>("http://localhost:3000/user", {username, password}) as Observable<Login>;
-    return user;
+    // let user: Observable<Login> = this.http.post<Login>("http://localhost:3000/user", {username, password}) as Observable<Login>;
+    return this.http.post<Login>("http://localhost:3000/user", {username, password}) as Observable<Login>;
+ 
+
+    // return user;
   }
 
  Register(username:string, password:string, first_name:string, last_name:string, email_address:string, address:Address):Observable<Register>{

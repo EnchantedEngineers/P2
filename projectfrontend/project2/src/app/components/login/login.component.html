@@ -1,5 +1,15 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- PUT LOGIC THAT TELLS IF SUCCESSFUL REGISTRATION HERE -->
+<!-- PUT LOGIC FOR DIV THAT TELLS IF SUCCESSFUL LOGIN HERE -->
+<div class={{login_class}} role="alert" style="text-align: center;" [(ngModel)]="login_msg" [hidden]="login_shown">{{login_msg}}</div>
+
 <div class="container" id="container" [ngClass]="{'right-panel-active':activeClass}">
+
+    
+
+
+
     <div class="form-container sign-up-container">
         <div class="container" action="#" style="margin: auto;">
             <h1>Create Account</h1>

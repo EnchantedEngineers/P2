@@ -30,7 +30,8 @@
                             <i class="fa fa-star-o"></i>
                         </div>
                         <div class="quantity">Available Quantity: <b>{{ps.available_quantity}}</b></div>
-                        <p><span class="money">{{(ps.price - (ps.price* .10)).toFixed(2)}}</span><span class="old-price">{{ps.price}}</span></p>
+                        <!-- try to figure out sale if needs be -->
+                        <p><span class="money">{{((ps.price - (ps.price* .10)).toFixed(2))}}</span><span class="old-price">{{ps.price}}</span></p> 
                         
                     </div>
 

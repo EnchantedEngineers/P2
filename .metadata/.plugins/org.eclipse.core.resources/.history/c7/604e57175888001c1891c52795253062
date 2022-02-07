@@ -32,9 +32,6 @@ public class UserController {
 //		System.out.println(statement);
 		
 		if (u != null) {
-			ctx.req.getSession();
-			String JSONuser = gson.toJson(u);
-			ctx.result(JSONuser);
 			ctx.status(200);
 			ctx.result("Registration Successful!");
 		

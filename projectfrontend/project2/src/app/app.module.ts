@@ -38,8 +38,7 @@ import { LoginComponent } from './components/login/login.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
-    
+    FormsModule,  
   ],
   providers: [],
   bootstrap: [AppComponent]

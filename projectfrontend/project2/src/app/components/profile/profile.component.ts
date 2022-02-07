@@ -12,9 +12,15 @@ import { ProductsService } from 'src/app/services/products.service';
 
 export class ProfileComponent implements OnInit {
 
+  loggedInUser: any = null; 
+
+  
+  public success:any;
+
   constructor(private ps:ProductsService) { }
 
   ngOnInit(): void {
+    this.loginPersist();
   }
 
   username: string = "";
@@ -30,11 +36,25 @@ export class ProfileComponent implements OnInit {
     postal_code: ''
   } ;
 
+  loginPersist(): void{
+    this.ps.login(
+      this.ps.username, this.ps.password).subscribe(
+    (data:any) => {
+      this.loggedInUser = data;
+      console.log("User is logged In")
+      console.log(this.loggedInUser)
+    },
+    () => {
+      console.log("User Login Failed")
+      console.log(this.loggedInUser); 
+    }
+  )
+}
+  };
 
-  public success:any;
 
-  Register(): void {
-   /**this.ps.Register(this.username, this.password, this.firstname, this.lastname, this.email_address, this.address, this.city, this.state,  this.country, this. postal_code).subscribe(**/
+
+ /**  Register(): void {
       this.ps.Register(
         this.username, this.password, this.first_name, this.last_name, this.email_address, this.address).subscribe(
       (data:any) => {
@@ -48,4 +68,4 @@ export class ProfileComponent implements OnInit {
       }
     )
   }
-}
+}*/
