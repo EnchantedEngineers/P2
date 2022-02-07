@@ -19,8 +19,8 @@ export class ProfileComponent implements OnInit {
 
   username: string = "";
   password: string = "";
-  firstname: string = "";
-  lastname: string = "";
+  first_name: string = "";
+  last_name: string = "";
   email_address: string = "";
   address: Address = {
     address: '',
@@ -35,7 +35,8 @@ export class ProfileComponent implements OnInit {
 
   Register(): void {
    /**this.ps.Register(this.username, this.password, this.firstname, this.lastname, this.email_address, this.address, this.city, this.state,  this.country, this. postal_code).subscribe(**/
-      this.ps.Register(this.username, this.password, this.firstname, this.lastname, this.email_address, this.address).subscribe(
+      this.ps.Register(
+        this.username, this.password, this.first_name, this.last_name, this.email_address, this.address).subscribe(
       (data:any) => {
         this.success = data;
         console.log("New Profile Registered")
