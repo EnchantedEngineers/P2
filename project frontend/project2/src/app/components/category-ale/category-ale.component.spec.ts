@@ -23,3 +23,4 @@ describe('CategoryAleComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

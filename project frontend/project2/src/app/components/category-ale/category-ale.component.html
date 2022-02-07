@@ -15,17 +15,77 @@
 
 
     <div class="row">
-        <div class="col-lg-4" *ngFor="let ps of product" >
+        <!-- <div class="col-lg-4" *ngFor="let ps of product" (mouseover)="getQuantity(ps.id1)" > -->
+        <div class="col-lg-4" *ngFor="let ps of product">
             <div class="a-section a-spacing-mini _p13n-zg-list-carousel-desktop_maskStyle_noop__3Xbw5" >
                 <div class = "border">
                 <img src="{{ps.image}}">
                 <div class="name"><b>{{ps.name}}</b></div>
                 <div class="quantity">Quantity Left: <b>{{ps.available_quantity}}</b></div>
                 <div class="price">Price: <b>${{ps.price}}</b></div>
-                <!-- <button (click)="getSingleProduct(p.id)">View Product</button> -->
+                <span> 
+                 
+                    <!-- <select id="quantityselected" > 
+                        <option value="quantityselected:{{ps.available_quantity-20}}" *ngIf="ps.available_quantity-20>0">{{ps.available_quantity-20}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-19}}" *ngIf="ps.available_quantity-19>0">{{ps.available_quantity-19}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-18}}" *ngIf="ps.available_quantity-18>0">{{ps.available_quantity-18}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-17}}" *ngIf="ps.available_quantity-17>0">{{ps.available_quantity-17}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-16}}" *ngIf="ps.available_quantity-16>0">{{ps.available_quantity-16}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-15}}" *ngIf="ps.available_quantity-15>0">{{ps.available_quantity-15}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-14}}" *ngIf="ps.available_quantity-14>0">{{ps.available_quantity-14}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-13}}" *ngIf="ps.available_quantity-13>0">{{ps.available_quantity-13}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-12}}" *ngIf="ps.available_quantity-12>0">{{ps.available_quantity-12}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-11}}" *ngIf="ps.available_quantity-11>0">{{ps.available_quantity-11}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-10}}" *ngIf="ps.available_quantity-10>0">{{ps.available_quantity-10}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-9}}" *ngIf="ps.available_quantity-9>0">{{ps.available_quantity-9}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-8}}" *ngIf="ps.available_quantity-8>0">{{ps.available_quantity-8}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-7}}" *ngIf="ps.available_quantity-7>0">{{ps.available_quantity-7}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-6}}" *ngIf="ps.available_quantity-6>0">{{ps.available_quantity-6}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-5}}" *ngIf="ps.available_quantity-5>0">{{ps.available_quantity-5}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-4}}" *ngIf="ps.available_quantity-4>0">{{ps.available_quantity-4}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-3}}" *ngIf="ps.available_quantity-3>0">{{ps.available_quantity-3}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-2}}" *ngIf="ps.available_quantity-2>0">{{ps.available_quantity-2}}</option>
+                        <option value="quantityselected:{{ps.available_quantity-1}}" *ngIf="ps.available_quantity-1>0">{{ps.available_quantity-1}}</option>
+                        <option value="quantityselected:{{ps.available_quantity}}" value = "{{ps.available_quantity}}">{{ps.available_quantity}}</option> 
+                    </select> -->
+
+                    <!-- <select *ngFor="let x of itemnumber2;">
+                        <option value=”” *ngFor="let y of x"><span>{{y}}</span></option>  
+                    </select> -->
+
+                    <!-- <select>
+                        <option value=”” *ngIf="quantityAmt">{{quantityAmt}}</option>  
+                    </select> -->
+                       
+                    <!-- <select >
+                        <option value=”” *ngFor = "let number of quantityAmt">
+                            <span *ngFor = "let n of number">
+                                    {{number}}
+                            </span>
+                    </select> -->
+
+                    <!-- <select *ngFor="let x of itemnumber2">
+                            <span *ngFor="let y of x">
+                                <option value=”” ><span>{{x}}</span></option>  
+                            </span>
+                    </select> -->
+
+                    <!-- <select>
+                        <option value=””  *ngFor="let x of itemnumber2">
+                            <span *ngFor="let y of x">
+                            <span *ngIf="y==12">
+                                {{y}}
+                            </span>
+                            </span>
+                        </option>  
+                    </select> -->
+
                 <button (click)="getSingleProduct(ps.id1)">Add to Cart</button>
+            </span>
+
                 </div>
                 </div>
+                
   
         </div>
     </div>

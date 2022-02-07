@@ -9,6 +9,19 @@ import { Login } from '../models/login';
 export class ProductsService {
 
   getAllProducts :Array<Product> = [];
+  ownId : any;
+  fn : any;
+  ln : any;
+  ownuser : any;
+  ownpass : any;
+  ownemail : any;
+
+  addressId: any;
+  ownAddress: any;
+  ownCity: any;
+  ownCountry: any;
+  ownCode: any;
+  ownState: any;
 
   constructor(private http:HttpClient) { }
 
@@ -26,5 +39,9 @@ export class ProductsService {
     return this.http.get("http://localhost:3000/product/" + id) as Observable<Product>;
   }
 
+  updateProduct(getAllProducts:any):Observable<Array<Product>>{
+    return this.http.post("http://localhost:3000/product", getAllProducts) as Observable<Array<Product>>;
+
+  }
 
 }

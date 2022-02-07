@@ -22,6 +22,20 @@ export class LoginComponent implements OnInit {
         this.success=data;
         console.log("Successful Login")
         console.log(this.success)
+        this.ps.ownId = this.success.id;
+        this.ps.fn = this.success.first_name;
+        this.ps.ln = this.success.last_name;
+        this.ps.ownuser = this.success.username;
+        this.ps.ownpass = this.success.password
+        this.ps.ownemail = this.success.email_address;
+        
+        this.ps.addressId = this.success.address.id;
+        this.ps.ownAddress = this.success.address.address_1;
+        this.ps.ownCity = this.success.address.city;
+        this.ps.ownCountry = this.success.address.country;
+        this.ps.ownCode = this.success.address.postal_code;
+        this.ps.ownState = this.success.address.state;
+        
       },
       () => {
         console.log("Logging In Failed")

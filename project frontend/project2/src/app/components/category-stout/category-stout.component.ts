@@ -44,8 +44,14 @@ export class CategoryStoutComponent implements OnInit {
         let response:String = data.status
 
         this.product = data; 
-
+        let valueid = this.product.id1;
+        let valuequantity = this.product.available_quantity;
+        let index = this.ps.getAllProducts.findIndex(object => object.id1 === valueid);
+        if (index === -1){
+        if (valuequantity != 0){
         this.ps.getAllProducts.push(this.product); 
+        }
+      }
 
         // this.getAllProducts.push(this.product); 
 
