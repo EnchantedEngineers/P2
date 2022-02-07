@@ -412,3 +412,9 @@
 2022-02-07 16:00:51,176 [Worker-43: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2022-02-07 16:00:51,179 [Worker-43: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2022-02-07 16:00:51,180 [Worker-43: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\jenea\OneDrive\02-RevaturePaidInternship\Projects-FOR SUBMISSION\Project 2\P2\project2\src\test\resources
+2022-02-07 18:10:43,934 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-02-07 18:11:28,822 [Worker-6: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.revature:hibernate:0.0.1-SNAPSHOT @ C:\Users\jenea\OneDrive\02-RevaturePaidInternship\Projects-FOR SUBMISSION\Project 2\P2\project2\pom.xml.
+2022-02-07 18:11:44,084 [Worker-6: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-02-07 18:11:44,133 [Worker-6: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-02-07 18:11:44,147 [Worker-6: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2022-02-07 18:11:44,149 [Worker-6: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\jenea\OneDrive\02-RevaturePaidInternship\Projects-FOR SUBMISSION\Project 2\P2\project2\src\test\resources
