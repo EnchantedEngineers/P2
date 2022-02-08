@@ -3,13 +3,13 @@
     <div class="form-container sign-up-container">
         <div class="container" action="#" style="margin: auto;">
             <h1>Create Account</h1>
-            <!-- <div class="social-container">
+            <div class="social-container">
                 <a href="https://www.facebook.com/" class="social"><i class="fa fa-facebook-f"></i></a>
                 <a href="https://www.google.com/" class="social"><i class="fa fa-google"></i></a>
                 <a href="https://www.linkedin.com/" class="social"><i class="fa fa-linkedin"></i></a>
-<<<<<<< Updated upstream
-            </div> -->
-            <!-- <span>or use your email for registration</span> -->
+
+            </div>
+            <span>or use your email for registration</span>
             <input type="text" [(ngModel)]="username" placeholder="Username" />
             <input type="password" [(ngModel)]="password" placeholder="Password" />
             <input type="email" [(ngModel)]="email_address" placeholder="Email" />
@@ -17,77 +17,73 @@
             <input type="text" [(ngModel)]="last_name" placeholder="Last Name" />
             <button (click)="Register()">Sign Up</button>
         </div>
-=======
-            </div>
-            <span>or use your email for registration</span>
-            <input type="text" placeholder="UserName" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <input type="text" placeholder="First Name" />
-            <input type="text" placeholder="Last Name" />
-            <button>Sign Up</button>
-        </form>
->>>>>>> Stashed changes
+
     </div>
-    <div class="form-container sign-in-container">
-        <div class="container" action="#" style="margin: auto;">
-            <h1 style="margin: auto;">Sign in</h1>
-            <div class="social-container">
-                <a href="https://www.facebook.com/" class="social"><i class="fa fa-facebook-f"></i></a>
-                <a href="https://www.google.com/" class="social"><i class="fa fa-google"></i></a>
-                <a href="https://www.linkedin.com/" class="social"><i class="fa fa-linkedin"></i></a>
-            </div>
-<<<<<<< Updated upstream
-            <span>or use your account</span>
-            <input type="text" [(ngModel)]="username" placeholder="Username"/>
-            <input type="password" [(ngModel)]="password" placeholder="Password"/>
-            <a href="#">Forgot your password?</a>
-            <div><button (click)="login()">Sign In</button></div>
+    <span>or use your email for registration</span>
+    <input type="text" placeholder="UserName" />
+    <input type="email" placeholder="Email" />
+    <input type="password" placeholder="Password" />
+    <input type="text" placeholder="First Name" />
+    <input type="text" placeholder="Last Name" />
+
+
+</div>
+<div class="form-container sign-in-container">
+    <div class="container" action="#" style="margin: auto;">
+        <h1 style="margin: auto;">Sign in</h1>
+        <div class="social-container">
+            <a href="https://www.facebook.com/" class="social"><i class="fa fa-facebook-f"></i></a>
+            <a href="https://www.google.com/" class="social"><i class="fa fa-google"></i></a>
+            <a href="https://www.linkedin.com/" class="social"><i class="fa fa-linkedin"></i></a>
+        </div>
+
+        <span>or use your account</span>
+        <input type="text" [(ngModel)]="username" placeholder="Username" />
+        <input type="password" [(ngModel)]="password" placeholder="Password" />
+        <a href="#">Forgot your password?</a>
+        <div><button (click)="login()">Sign In</button></div>
+    </div>
+</div>
+<div class="overlay-container">
+
+    <span>or use your account</span>
+    <input type="text" placeholder="UserName" />
+    <input type="password" placeholder="Password" />
+    <a href="#">Forgot your password?</a>
+    <button>Sign In</button>
+
+</div>
+<div class="overlay-container">
+
+    <div class="overlay">
+        <div class="overlay-panel overlay-left">
+            <h1>Welcome Back!</h1>
+            <p>
+                To keep connected with us please login with your personal info
+            </p>
+            <button class="ghost" id="signIn" (click)="toggleClass()">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+            <h1>Hello, Friend!</h1>
+            <p>Enter your personal details and start journey with us</p>
+            <button class="ghost" id="signUp" (click)="toggleClass()">Sign Up</button>
         </div>
     </div>
-    <div class="overlay-container">
-=======
-                <span>or use your account</span>
-                <input type="text" placeholder="UserName" />
-                <input type="password" placeholder="Password" />
-                <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
-                </form>
-                </div>
-                <div class="overlay-container">
-                
-                    <div class="overlay">
-                        <div class="overlay-panel overlay-left">
-                            <h1>Welcome Back!</h1>
-                            <p>
-                                To keep connected with us please login with your personal info
-                            </p>
-                            <button class="ghost" id="signIn" (click)="toggleClass()">Sign In</button>
-                        </div>
-                        <div class="overlay-panel overlay-right">
-                            <h1>Hello, Friend!</h1>
-                            <p>Enter your personal details and start journey with us</p>
-                            <button class="ghost" id="signUp" (click)="toggleClass()">Sign Up</button>
-                        </div>
-                    </div>
-                </div>
-                </div>
+</div>
 
->>>>>>> Stashed changes
 
-        <div class="overlay">
-            <div class="overlay-panel overlay-left">
-                <h1>Welcome Back!</h1>
-                <p>
-                    To keep connected with us please login with your personal info
-                </p>
-                <button class="ghost" id="signIn" (click)="toggleClass()">Sign In</button>
-            </div>
-            <div class="overlay-panel overlay-right">
-                <h1>Hello, Friend!</h1>
-                <p>Enter your personal details and start your journey with us</p>
-                <button class="ghost" id="signUp" (click)="toggleClass()">Sign Up</button>
-            </div>
-        </div>
+
+<div class="overlay">
+    <div class="overlay-panel overlay-left">
+        <h1>Welcome Back!</h1>
+        <p>
+            To keep connected with us please login with your personal info
+        </p>
+        <button class="ghost" id="signIn" (click)="toggleClass()">Sign In</button>
+    </div>
+    <div class="overlay-panel overlay-right">
+        <h1>Hello, Friend!</h1>
+        <p>Enter your personal details and start your journey with us</p>
+        <button class="ghost" id="signUp" (click)="toggleClass()">Sign Up</button>
     </div>
 </div>
