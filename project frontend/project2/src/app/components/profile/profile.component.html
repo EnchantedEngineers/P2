@@ -1,1 +1,81 @@
-<p>profile works</p>
+<section>
+  <div class="container">
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+        <div class="row">
+          <div class="col text-center">
+            <h1>Register</h1>
+            <p class="text-h3">Register for an Enchanted Stores Account Below</p>
+          </div>
+        </div>
+        <!-- Username -->
+        <div class="row align-items-center">
+          <div class="col mt-4">
+            <input type="text" class="form-control" placeholder="Username" [(ngModel)]="username">
+          </div>
+        </div>
+        <!-- Password -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password">
+          </div>
+        </div>
+        <!-- Email -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="email" class="form-control" placeholder="Email" [(ngModel)]="email_address">
+          </div>
+        </div>
+        <!-- First name -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="first_name">
+          </div>
+        </div>
+        <!-- Last name -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="last_name">
+          </div>
+        </div>
+        <!-- Address  -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Street Address" [(ngModel)]="address.address_1">
+          </div>
+        </div>
+        <!-- city -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="City" [(ngModel)]="address.city">
+          </div>
+        </div>
+        <!-- state -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="State" [(ngModel)]="address.state">
+            <!--Change to dropdown if time-->
+          </div>
+        </div>
+        <!-- country -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Country" [(ngModel)]="address.country">
+          </div>
+        </div>
+        <!-- postal code -->
+        <div class="row align-items-center mt-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Zip Code" [(ngModel)]="address.postal_code">
+          </div>
+        </div>
+        <div class="row justify-content-start mt-4">
+          <div class="col">
+            <button class="btn btn-primary mt-4" (click)="Register()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
