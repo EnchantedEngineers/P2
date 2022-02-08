@@ -71,6 +71,7 @@ public class Launcher {
 		app.get("/product/{id}", pc.getProductByIdHandler);
 		app.get("/product/name/{name}", pc.getProductByNameHandler);
 		app.post("/product/insert", pc.insertProductHandler);
+		app.post("/product", pc.updateProductHandler);
 		//============================================USERSERVICE===========================================
 		app.get("/user", uc.getAllUsersHandler);
 		app.get("/user/{username}", uc.getUserByUsernameHandler);

@@ -1,21 +1,21 @@
 package com.revature.repositories;
 
+import java.time.LocalDateTime;
 import java.util.List;
-
-//import javax.management.Query;
-
-import org.hibernate.Session;
-
-import com.revature.models.Categories;
-
-import com.revature.models.Product;
-import com.revature.util.HibernateUtil;
 
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
 
+//import javax.management.Query;
 
+import org.hibernate.Session;
 import org.hibernate.Transaction;
+
+import com.revature.models.CustomerOrder;
+import com.revature.models.Product;
+import com.revature.models.ProductDTO;
+import com.revature.models.User;
+import com.revature.util.HibernateUtil;
 
 
 
@@ -117,6 +117,70 @@ public Product getProductByName(String name) {
 		} catch (NoResultException e) {
 			return null;
 		}
+}
+
+public String updateProducts(List<ProductDTO> o) {
+    
+    UserDAO udao = new UserDAO();
+    try {
+        
+        int userId=o.get(0).getOwnId();
+        User u = udao.getUserById(userId);
+        LocalDateTime d = LocalDateTime.now();
+        Session ses = HibernateUtil.getSession();
+        Transaction tran = ses.beginTransaction();
+        int indx=0;
+        for (ProductDTO c : o) 
+        {
+             ses = HibernateUtil.getSession();
+                    indx++;
+                int currentQuantity = c.getAvailable_quantity() - c.getQnt();
+                Query q = ses.createQuery("UPDATE Product SET available_quantity = '" + currentQuantity + "' WHERE id = " +c.getId1());
+                q.executeUpdate();
+            
+        }
+        tran.commit();
+        HibernateUtil.closeSession();
+        
+        return "Success";
+
+    } catch (Exception e) {
+        return "Failed in dao";
+    }
+
+}
+
+public String customerOrderProducts(List<ProductDTO> o) {
+    
+    UserDAO udao = new UserDAO();
+    ProductDAO pdao=new ProductDAO();
+    try {
+        
+        int userId=o.get(0).getOwnId();
+        User u = udao.getUserById(userId);
+        LocalDateTime d = LocalDateTime.now();
+        Session ses = HibernateUtil.getSession();
+        org.hibernate.Transaction tx = ses.beginTransaction();
+        int indx=0;
+        for (ProductDTO c : o) 
+        {
+            Product p=pdao.getProductById(c.getId1());
+             ses = HibernateUtil.getSession();
+            tx = ses.beginTransaction();
+                    indx++;
+            CustomerOrder co = new CustomerOrder(c.getQnt(), c.getEachprice(),d, u, p);
+            ses.save(co);
+            ses.flush();ses.clear();
+        }
+        tx.commit();
+        HibernateUtil.closeSession();
+        
+        return "Success";
+
+    } catch (Exception e) {
+        return "Failed in dao";
+    }
+
 }
 
 }

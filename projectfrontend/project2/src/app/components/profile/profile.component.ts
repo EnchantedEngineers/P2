@@ -12,16 +12,22 @@ import { ProductsService } from 'src/app/services/products.service';
 
 export class ProfileComponent implements OnInit {
 
+  loggedInUser: any = null; 
+
+  
+  public success:any;
+
   constructor(private ps:ProductsService) { }
 
   ngOnInit(): void {
+    
   }
 
-  username: string = "";
-  password: string = "";
-  first_name: string = "";
-  last_name: string = "";
-  email_address: string = "";
+  username: string =  this.ps.ownuser;
+  password: string =  this.ps.ownpass;
+  first_name: string = this.ps.fn;
+  last_name: string = this.ps.ln;
+  email_address: string = this.ps.ownemail;
   address: Address = {
     address_1: '',
     city: '',
@@ -30,22 +36,11 @@ export class ProfileComponent implements OnInit {
     postal_code: ''
   } ;
 
+  // put this in method to update the address
 
-  public success:any;
-
-  Register(): void {
-   /**this.ps.Register(this.username, this.password, this.firstname, this.lastname, this.email_address, this.address, this.city, this.state,  this.country, this. postal_code).subscribe(**/
-      this.ps.Register(
-        this.username, this.password, this.first_name, this.last_name, this.email_address, this.address).subscribe(
-      (data:any) => {
-        this.success = data;
-        console.log("New Profile Registered")
-        console.log(this.success)
-      },
-      () => {
-        console.log("Registration Failed")
-        console.log(this.success); 
-      }
-    )
-  }
+  // this.ps.ownAddress = this.address.address_1;
+  // this.this.ps.ownCity = this.address.city;
+  // this.ps.ownCountry = this.address.country;
+  // this.ps.ownCode = this.address.postal_code;
+  // this.ps.ownState = this.address.state; 
 }

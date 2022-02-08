@@ -1,0 +1,50 @@
+package com.revature.models;
+
+import java.awt.Image;
+import java.util.Locale.Category;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="products")
+public class Product {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "product_id")
+	private int id1; 
+	
+	@Column(nullable = false)
+	private String name; 
+	
+	@Column(nullable = false)
+	private double price; 
+	/*@Column(unique = true)
+	private Image product_picture; */
+	@Column(nullable = false)
+	private String image;
+	
+	@Column(nullable = false)
+	private int available_quantity; 
+	
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "category_id")
+	private Categories  product_category;
+	
+	@Column(nullable = false)
+    private int qnt;
+
+
+	//boilerplate code --------------------------------------------------------------------
+
+
+
+	
