@@ -16,6 +16,7 @@ import { CategoryAleComponent } from './components/category-ale/category-ale.com
 import { SingleProductComponent } from './components/single-product/single-product.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
+import { PastordersComponent } from './components/pastorders/pastorders.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { LoginComponent } from './components/login/login.component';
     CategoryAleComponent,
     SingleProductComponent,
     LoginComponent,
+    PastordersComponent,
     
   ],
   imports: [

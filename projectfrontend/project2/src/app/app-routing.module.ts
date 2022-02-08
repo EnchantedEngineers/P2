@@ -6,6 +6,7 @@ import { CategoryAleComponent } from './components/category-ale/category-ale.com
 import { CategoryStoutComponent } from './components/category-stout/category-stout.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { PastordersComponent } from './components/pastorders/pastorders.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
@@ -45,6 +46,11 @@ const routes: Routes = [
     path: "login",
    component: LoginComponent
   },
+
+  {
+    path: "past",
+    component: PastordersComponent
+  }
 
 ];
 

@@ -53,5 +53,8 @@ export class ProductsService {
 
   }
 
+  getPurchasedProducts(id:number):Observable<Array<Product>>{
+    return this.http.get("http://localhost:3000/order/" + id) as Observable<Array<Product>>
+  }
 
 }
