@@ -13,6 +13,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProfileComponent implements OnInit {
 
   loggedInUser: any = null; 
+<<<<<<< Updated upstream
 
   
   public success:any;
@@ -43,4 +44,17 @@ export class ProfileComponent implements OnInit {
   // this.ps.ownCountry = this.address.country;
   // this.ps.ownCode = this.address.postal_code;
   // this.ps.ownState = this.address.state; 
+=======
+
+  
+  public success:any;
+
+  constructor(private ps:ProductsService) { }
+
+  ngOnInit(): void {
+    
+  }
+
+ 
+>>>>>>> Stashed changes
 }
