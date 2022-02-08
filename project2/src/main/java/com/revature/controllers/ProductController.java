@@ -1,19 +1,42 @@
 package com.revature.controllers;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.revature.models.Product;
-import com.revature.models.User;
-import com.revature.models.UserProfile;
+import com.revature.models.ProductDTO;
+import com.revature.repositories.ProductDAO;
 import com.revature.services.ProductService;
-import com.revature.services.UserService;
 
 import io.javalin.http.Handler;
 
 public class ProductController {
 
 	ProductService pService = new ProductService();
+	
+	ProductDAO pDAO = new ProductDAO();
+	public Handler updateProductHandler=(ctx)->{
+	        if (ctx.req.getSession() != null) {
+	        String body=ctx.body();
+	     System.out.println(" body "+body);
+	        
+	        Type listType = new TypeToken<ArrayList<ProductDTO>>(){}.getType();
+	        List<ProductDTO> pList = new Gson().fromJson(body, listType);
+	        String suc=pDAO.updateProducts(pList);
+	        String suc1=pDAO.customerOrderProducts(pList);
+	        if(suc!=null)
+	        {ctx.result(suc);
+	        ctx.status(202);
+	        }
+	        }else { ctx.result("failed in controller"); ctx.status(403); }
+	        
+	    };
+	
+	
+	
 	
 	public Handler insertProductHandler = (ctx) -> {
 		if (ctx.req.getSession() != null) {
