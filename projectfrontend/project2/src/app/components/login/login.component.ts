@@ -17,25 +17,11 @@ export class LoginComponent implements OnInit {
   login_msg: String = "";
   login_class: String = "";
 
-  //MODAL WITH TIMEOUT FUNCTIONALITY -- STILL WORKING ON IT
-  // @ViewChild('staticAlert', {static: false}) staticAlert: NgbAlert;
-  // @ViewChild('selfClosingAlert', {static: false}) selfClosingAlert: NgbAlert;
-
   constructor(private ps: ProductsService) { }
 
   activeClass = false;
 
   ngOnInit(): void {
-
-    //MODAL WITH TIMEOUT FUNCTIONALITY -- STILL WORKING ON IT
-    // setTimeout(() => this.staticAlert.close(), 20000);
-
-    // this._success.subscribe(message => this.successMessage = message);
-    // this._success.pipe(debounceTime(5000)).subscribe(() => {
-    //   if (this.selfClosingAlert) {
-    //     this.selfClosingAlert.close();
-    //   }
-    // });
 
   }
 
