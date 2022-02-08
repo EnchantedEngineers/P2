@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { OnChange } from 'ngx-bootstrap/utils';
 import { CartService } from 'src/app/app/services/cart.service';
 import { OrderItem } from 'src/app/models/OrderItem';
 import { Product } from 'src/app/models/product';
@@ -13,10 +14,12 @@ export class CartComponent implements OnInit {
 
   public product:Array<Product> = []; 
      // q =((document.getElementById("quantity") as HTMLInputElement).value);
-   // quantity_to_purchase:number=parseInt(this.q);
+ // public  quantity_to_purchase:Array<number>=[];
   order_date: Date=new Date();
         
-  constructor(private ps:ProductsService,private cartService:CartService) { }
+  constructor(private ps:ProductsService,
+    private cartService:CartService) { }
+ 
 
   ngOnInit(): void {
 
@@ -28,6 +31,7 @@ export class CartComponent implements OnInit {
     //something like so : product.remove(id)
     console.log("removing " + id);
   }
+  addQuantity():void{}
   /*
 checout():void{
   for(let  p of this.product)

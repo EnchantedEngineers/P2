@@ -11,10 +11,10 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
 })
 export class HomeComponent implements OnInit {
    slides = [
-      {image: 'assets/beer.jpg', text: 'First'},
-      {image: 'assets/beerdisplay.jpg',text: 'Second'},
-      {image: 'assets/home.jpg',text: 'Third'},
-      {image: 'assets/torpdeo.jpg',  text: 'Third'}
+      {image: 'assets/beer.jpg', text: 'beer'},
+     
+      {image: 'assets/newholland.jpg',text: 'new holland'},
+      {image: 'assets/torpdeo.jpg',  text: 'Torpedo '}
    ];
    noWrapSlides = false;
    showIndicator = true;
