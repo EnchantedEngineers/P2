@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<section class="bg-color">
+    <div class="containers">
+
+        <div class="row">
+            <div [hidden] = "hiddenMessage" style="text-align: center;"><h1><b>YOU HAVE NO PAST ORDERS</b></h1></div>
+            <div class="col-md-3" *ngFor="let ps of product" style="padding-bottom: 3em;">
+               
+                <div class="card">
+                    <div class="card-main">
+                        <div class="image" style="width: 8em; height: auto; margin: auto;">
+                            <img src="{{ps.product.image}}" alt="image" />
+                        </div>
+                        <div class="cart-line"></div>
+                        <div class="cart-item">
+                        </div>
+                    </div>
+                    <div class="content">
+                        <a href="">{{ps.product.name}}</a>
+                        <div class="quantity">Total Price: <b>${{ps.order_total| number : '1.2-2' }}</b></div>
+                        <div class="quantity">Quantity Ordered: <b>{{ps.order_quantity}}</b></div>
+                        <div class="quantity">Date Ordered: <b>{{ps.order_date.date.month}}/{{ps.order_date.date.day}}/{{ps.order_date.date.year}}</b></div>
+                        <div class="quantity">Time Ordered: <b>{{ps.order_date.time.hour}}:{{ps.order_date.time.minute}}</b></div>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
