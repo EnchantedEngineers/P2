@@ -18,25 +18,6 @@ public void insertAddress(Address address) {
 		HibernateUtil.closeSession(); 
 	}
 
-//public String updateAddress(Address address) {
-//	try {
-//	Session ses = HibernateUtil.getSession();
-//	
-//	Transaction tran = ses.beginTransaction();	
-//	
-//	ses.merge(address);
-//	
-//	tran.commit();
-//	
-//	HibernateUtil.closeSession();
-//
-//	return "Success";
-//	} catch (Exception e) {
-//		return "Failed";
-//	}
-//	
-//}
-
 public String updateAddress(Address address) {
     try {
     Session ses = HibernateUtil.getSession();

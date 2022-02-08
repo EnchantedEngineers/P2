@@ -1,3 +1,6 @@
 
 .metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log
 .metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+project2/target/classes/META-INF/MANIFEST.MF
+*.MF
+*.properties

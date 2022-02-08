@@ -1,3 +1,6 @@
 .navbar {
   background: #fa0;
 }
+.nav-item li {
+  float: right;
+}
