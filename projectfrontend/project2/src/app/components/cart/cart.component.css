@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 .border {
     border-style:double;
     padding: .5em;
@@ -9,20 +9,19 @@
 }
 
 .button {
-    background-color: blue; /* Green */
+    background-color: #fa0;
     border: none;
     color: white;
     padding: 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 10px;
     margin: 10px 10px;
     cursor: pointer;
   }
 
 .button1 {border-radius: 50%;}
-=======
 /*==========Hero Section===========*/
 #hero {
   display: table;
@@ -194,4 +193,4 @@
   display: block;
   text-align: center;
 }
->>>>>>> Stashed changes
+

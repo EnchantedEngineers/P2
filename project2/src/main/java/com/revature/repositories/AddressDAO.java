@@ -2,6 +2,7 @@ package com.revature.repositories;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import com.revature.models.Address;
 import com.revature.util.HibernateUtil;
@@ -18,22 +19,22 @@ public void insertAddress(Address address) {
 	}
 
 public String updateAddress(Address address) {
-	try {
-	Session ses = HibernateUtil.getSession();
-	
-	Transaction tran = ses.beginTransaction();	
-	
-	ses.merge(address);
-	
-	tran.commit();
-	
-	HibernateUtil.closeSession();
+    try {
+    Session ses = HibernateUtil.getSession();
+    
+    Transaction tran = ses.beginTransaction();    
+    
+    Query q = ses.createQuery("UPDATE Address SET address_1 = '" + address.getAddress_1() + "', city = '" + address.getCity() + "', state = '" + address.getState() + "', country = '" + address.getCountry() + "', postal_code = '" + address.getPostal_code() + "' WHERE id = " + address.getId());
+    
+    q.executeUpdate();
+    
+    HibernateUtil.closeSession();
 
-	return "Success";
-	} catch (Exception e) {
-		return "Failed";
-	}
-	
+    return "Success";
+    } catch (Exception e) {
+        return "Failed";
+    }
+    
 }
 }
 

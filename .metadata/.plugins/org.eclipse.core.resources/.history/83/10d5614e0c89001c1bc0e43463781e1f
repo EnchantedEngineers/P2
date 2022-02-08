@@ -52,7 +52,7 @@ public class Launcher {
 			).start(3000);
 		
 		//=========================================ADDRESSSERVICE=========================================
-		app.post("/address", ac.updateAddressHandler);
+		app.put("/address", ac.updateAddressHandler);
 		//=========================================CATEGORYSERVICE=========================================
 		app.post("/category", cc.insertCategoryHandler);
 		//=======================================CUSTOMERORDERSERVICE========================================

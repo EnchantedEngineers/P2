@@ -1,63 +1,48 @@
-<<<<<<< Updated upstream
-<div>
+<!-- <div>
     <div class="row">
-        <div><h3 id="num" style="text-align: center;">Total Price: <h2><span style="background-color:lightcoral;"><b>$ {{totalPrice | number : '1.2-2' }} </b></span></h2>
-            <button id="checkoutButton" class="btn btn-success col-sm-0.5" (click)="checkingOut()">Checkout</button></h3></div>
+        <div><h3 id="num" style="text-align: center;">Total Price: <h2><span style="background-color:lightcoral;"><b>$  </b></span></h2>
+            <button id="checkoutButton" class="btn btn-success col-sm-0.5" >Checkout</button></h3></div>
      
         <div class="col-lg-4" *ngFor="let ps of product" >
             <div class="a-section a-spacing-mini _p13n-zg-list-carousel-desktop_maskStyle_noop__3Xbw5" >
                 <div class = "border">
-                <div align="left"><button class="btn btn-danger col-sm-0.1" title="Remove Item" (click)="removeItem(ps.id1)">X</button></div>
+                
                 <img src="{{ps.image}}">
-                <div class="name"><b>{{ps.name}}</b></div>
-                <div class="price">Price: <b>${{ps.price | number : '1.2-2' }}</b></div>
-                <div>
-                    <button type="button" class="button button1" (click)="inc(ps)">+</button>
-                        <b>{{ps.qnt}}</b>
-                    <button type="button" class="button button1"  (click)="dec(ps)">-</button>
-                </div>
-                <div class="price" >Total Price: <b>${{ps.eachprice | number : '1.2-2' }}</b></div>
+                <div class="name"><b></b></div>
+                <div class="price">Price: <b>$</b></div>
+                
+                <div class="price" >Total Price: <b>$</b></div>
                 <div class="price">Available Quantity: <b>{{ps.available_quantity}}</b></div>
-             
-            
-
-             
-                <!-- <button (click)="getSingleProduct(p.id)">View Product</button> -->
-                <!-- <button (click)="getSingleProduct(ps.id1)">Add to Cart</button> -->
-                </div>
-                </div>
-            </div>
-       
-=======
-<!doctype html>
-<html lang="en">
-  <head>
-    
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
       
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+                </div>
+                </div>
+            </div> -->
 
-    <!---Hero Section-->
-    <section id="hero">
-        <div class="hero-container">
-            <div class="hero-logo">
-                <h1 class="font-weight-bold">Cart Products</h1>
-            </div>
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+<!---Hero Section-->
+<section id="hero">
+    <div class="hero-container">
+        <div class="hero-logo">
+            <h1 class="font-weight-bold">Cart Products</h1>
         </div>
-    </section>
-    <!---End of Hero Section-->
-    <!--Cart Section-->
+    </div>
+</section>
+<!---End of Hero Section-->
+<!--Cart Section-->
 <section class="mt-5">
     <div class="container">
         <div class="cart">
@@ -65,96 +50,56 @@
                 <table class="table">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col" class="text-white">Product</th>
-                            <th scope="col" class="text-white">Price</th>
-                            <th scope="col" class="text-white">Quantity</th>
-                            <th scope="col" class="text-white">Total</th>
+                            <th scope="col" class="text-white"style="text-align: center;">Product</th>
+                            <th scope="col" class="text-white"style="text-align: center;">Price</th>
+                            <th scope="col" class="text-white"style="text-align: center;">Available Quantity</th>
+                            <th scope="col" class="text-white"style="text-align: center;">Quantity</th>
+                            <th scope="col" class="text-white"style="text-align: center;">Total</th>
+                            <th scope="col" class="text-white" style="text-align: center;">Remove Item</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr *ngFor="let ps of product">
                             <td>
                                 <div class="main">
                                     <div class="d-flex">
-                                        <!--W=145 H=98--> <img src="../../../assets/budlight.png" alt="">
+                                        <!--W=145 H=98--> <img src="{{ps.image}}" alt="">
                                     </div>
                                     <div class="des">
-                                        <p>BudLight</p>
+                                        <p>{{ps.name}}</p>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                <h6>$20.00</h6>
+                                <h6>${{ps.price | number : '1.2-2' }}</h6>
                             </td>
                             <td>
-                                <div class="counter">
+                                <div class="price" style="text-align: center; color:  #fa0;">Available Quantity: <b>{{ps.available_quantity}}</b></div>
+                            </td>
+                            <td>
+                                <div style="text-align: center;">
+                                    <button type="button" class="button button1" (click)="dec(ps)">-</button>
+                                    <b>{{ps.qnt}}</b>
+                                    <button type="button" class="button button1" (click)="inc(ps)">+</button>
+                                </div>
+                                <!-- <div class="counter">
                                     <i class="fa fa-angle-down"></i>
                                     <input class="input-number" type="text" value="1" min="0" max="10">
                                     <i class="fa fa-angle-up"></i>
-                                </div>
+                                </div> -->
                             </td>
                             <td>
-                                <h6>$20.00</h6>
+                                <h6>${{ps.eachprice | number : '1.2-2' }}</h6>
+                            </td>
+                            <td>
+                                <div align="center"><button class="btn btn-danger col-sm-0.1" title="Remove Item"
+                                        (click)="removeItem(ps.id1)">X</button></div>
                             </td>
                         </tr>
-                        <!----->
-                        <tr>
-                            <td>
-                                <div class="main">
-                                    <div class="d-flex">
-                                        <!--W=145 H=98--> <img src="../../../assets/coronaextra.png" alt="">
-                                    </div>
-                                    <div class="des">
-                                        <p>Corona</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <h6>$20.00</h6>
-                            </td>
-                            <td>
-                                <div class="counter">
-                                    <i class="fa fa-angle-down"></i>
-                                    <input class="input-number" type="text" value="1" min="0" max="10">
-                                    <i class="fa fa-angle-up"></i>
-                                </div>
-                            </td>
-                            <td>
-                                <h6>$20.00</h6>
-                            </td>
-                        </tr>
-                        <!----->
-                        <tr>
-                            <td>
-                                <div class="main">
-                                    <div class="d-flex">
-                                        <img src="../../../assets/budlight.png" alt="">
-                                    </div>
-                                    <div class="des">
-                                        <p>BudLight</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <h6>$20.00</h6>
-                            </td>
-                            <td>
-                                <div class="counter">
-                                    <i class="fa fa-angle-down"></i>
-                                    <input class="input-number" type="text" value="1" min="0" max="10">
-                                    <i class="fa fa-angle-up"></i>
-                                </div>
-                            </td>
-                            <td>
-                                <h6>$20.00</h6>
-                            </td>
-                        </tr>
-                        <!----->
                     </tbody>
                 </table>
             </div>
         </div>
->>>>>>> Stashed changes
     </div>
 </section>
 
@@ -162,16 +107,13 @@
 <div class="col-lg-4 offset-lg-4">
     <div class="checkout">
         <ul>
-            <li class="subtotal">subtotal
-                <span>$60.00</span>
-            </li>
+            <!-- <li class="subtotal">subtotal
+                <span> ${{totalPrice | number : '1.2-2' }}</span>
+            </li> -->
             <li class="cart-total">Total
-                <span>$60.00</span>
+                <span> ${{totalPrice | number : '1.2-2' }}</span>
             </li>
         </ul>
-        <a href="#" class="proceed-btn">Proceed to Checkout</a>
+        <a href="#" class="proceed-btn" (click)="checkingOut()">Checkout</a>
     </div>
 </div>
-  
-</body>
-</html>

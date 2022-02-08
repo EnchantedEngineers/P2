@@ -13,10 +13,10 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProfileComponent implements OnInit {
 
   loggedInUser: any = null; 
-<<<<<<< Updated upstream
 
   
   public success:any;
+  public update: any;
 
   constructor(private ps:ProductsService) { }
 
@@ -30,12 +30,13 @@ export class ProfileComponent implements OnInit {
   last_name: string = this.ps.ln;
   email_address: string = this.ps.ownemail;
   address: Address = {
+    id:this.ps.addressId,
     address_1: '',
     city: '',
     state: '',
     country: '',
     postal_code: ''
-  } ;
+  };
 
   // put this in method to update the address
 
@@ -44,17 +45,20 @@ export class ProfileComponent implements OnInit {
   // this.ps.ownCountry = this.address.country;
   // this.ps.ownCode = this.address.postal_code;
   // this.ps.ownState = this.address.state; 
-=======
 
-  
-  public success:any;
+  updateUserAddress(): void {
+    console.log(this.address);
+    this.ps.updateAddress(this.address).subscribe(
+      (data:any) => {
+        this.update = data;
+        console.log("Successfully Updated Address")
+        console.log(this.update)
+      },
+      () => {
+        console.log(this.address);
+        console.log("Updating User Profile failed")
+      }
+    )
 
-  constructor(private ps:ProductsService) { }
-
-  ngOnInit(): void {
-    
   }
-
- 
->>>>>>> Stashed changes
 }
