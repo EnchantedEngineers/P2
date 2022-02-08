@@ -13,7 +13,11 @@ export class LoginComponent implements OnInit {
 
   constructor(private ps: ProductsService) { }
 
+  login_shown: boolean = true;
+  login_msg: String = "";
+  login_class: String = "";
   activeClass=false;
+
 
   ngOnInit(): void {}
 
@@ -42,6 +46,11 @@ export class LoginComponent implements OnInit {
     this.ps.login(this.username, this.password).subscribe(
       (data:any)=> {
         this.success=data;
+
+        this.login_shown = !this.login_shown;
+        this.login_class = "alert alert-success";
+        this.login_msg = "Login Successful!";
+
         console.log("Successful Login")
         console.log(this.success)
         this.ps.ownId = this.success.id;
@@ -61,38 +70,13 @@ export class LoginComponent implements OnInit {
       },
       () => {
         console.log("Logging In Failed")
+
+        this.login_shown = !this.login_shown;
+        this.login_msg = "Login Failed. Incorrect Username or Password!";
+        this.login_class = "alert alert-danger";
       }
     )
   }
-
-  // Register(): void {
-  //   /**this.ps.Register(this.username, this.password, this.firstname, this.lastname, this.email_address, this.address, this.city, this.state,  this.country, this. postal_code).subscribe(**/
-  //      this.ps.Register(
-  //        this.username, this.password, this.first_name, this.last_name, this.email_address, this.address).subscribe(
-  //      (data:any) => {
-  //        this.success = data;
-  //        console.log("New Profile Registered")
-  //        console.log(this.success)
-  //        this.ps.ownId = this.success.id;
-  //        this.ps.fn = this.success.first_name;
-  //        this.ps.ln = this.success.last_name;
-  //        this.ps.ownuser = this.success.username;
-  //        this.ps.ownpass = this.success.password
-  //        this.ps.ownemail = this.success.email_address;
-         
-  //        this.ps.addressId = this.success.address.id;
-  //        this.ps.ownAddress = this.success.address.address_1;
-  //        this.ps.ownCity = this.success.address.city;
-  //        this.ps.ownCountry = this.success.address.country;
-  //        this.ps.ownCode = this.success.address.postal_code;
-  //        this.ps.ownState = this.success.address.state; 
-  //      },
-  //      () => {
-  //        console.log("Registration Failed")
-  //        console.log(this.success); 
-  //      }
-  //    )
-  //  }
 
   Register(): void {
     this.ps.Register(
@@ -105,9 +89,17 @@ export class LoginComponent implements OnInit {
     if (error.status === 200) {
       console.log(error.status);
       console.log("REGISTRATION SUCCESS");
+
+      this.login_shown = !this.login_shown;
+          this.login_class = "alert alert-success";
+          this.login_msg = "Registration Successful!";
     } else {
       console.log(error.status);
       console.log("REGISTRATION UNSUCCESSFUL");
+
+      this.login_shown = !this.login_shown;
+      this.login_msg = "Username is not unique!";
+      this.login_class = "alert alert-danger";
     }
   }
 }

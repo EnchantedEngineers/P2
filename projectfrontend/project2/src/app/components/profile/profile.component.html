@@ -1,43 +1,50 @@
+
 <section>
+
+  <!-- PUT LOGIC FOR DIV THAT TELLS IF SUCCESSFUL UPDATE HERE -->
+<div class={{login_class}} role="alert" style="text-align: center;" [(ngModel)]="login_msg" [hidden]="reg_success">{{login_msg}}</div>
+
   <div class="container">
 
     <div class="row justify-content-center">
       <div class="col-12 col-md-8 col-lg-8 col-xl-6">
         <div class="row">
           <div class="col text-center">
-            <h1>Register</h1>
-            <p class="text-h3">Register for an Enchanted Stores Account Below</p>
+            <h1 style="color:#fa0; padding-top: 1em;">Enchanted Stores User Profile</h1>
           </div>
         </div>
         <!-- Username -->
         <div class="row align-items-center">
           <div class="col mt-4">
-            <input type="text" class="form-control" placeholder="Username" [(ngModel)]="username">
+            <input type="text" class="form-control" disabled placeholder="Username" [(ngModel)]="username">
           </div>
         </div>
         <!-- Password -->
         <div class="row align-items-center mt-4">
           <div class="col">
-            <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password">
+            <input type="password" class="form-control" disabled placeholder="Password" [(ngModel)]="password">
           </div>
         </div>
         <!-- Email -->
         <div class="row align-items-center mt-4">
           <div class="col">
-            <input type="email" class="form-control" placeholder="Email" [(ngModel)]="email_address">
+            <input type="email" class="form-control" disabled placeholder="Email" [(ngModel)]="email_address">
           </div>
         </div>
         <!-- First name -->
         <div class="row align-items-center mt-4">
           <div class="col">
-            <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="first_name">
+            <input type="text" class="form-control" disabled placeholder="First Name" [(ngModel)]="first_name">
           </div>
         </div>
         <!-- Last name -->
         <div class="row align-items-center mt-4">
           <div class="col">
-            <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="last_name">
+            <input type="text" class="form-control" disabled placeholder="Last Name" [(ngModel)]="last_name">
           </div>
+        </div>
+        <div class="col text-center">
+          <h1 style="color:rgb(231, 158, 12); padding-top: 1em;">Update Your Address Below</h1>
         </div>
         <!-- Address  -->
         <div class="row align-items-center mt-4">
@@ -71,8 +78,8 @@
           </div>
         </div>
         <div class="row justify-content-start mt-4">
-          <div class="col">
-            <button class="btn btn-primary mt-4" (click)="updateUserAddress()">Update Address</button>
+          <div class="col" style="padding-bottom: 2em;">
+            <button class="btn mt-4" style="background-color: #fa0; color: white;" (click)="updateUserAddress()">Update Address</button>
           </div>
         </div>
       </div>

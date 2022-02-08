@@ -2,12 +2,5 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="javax.persistence.Query"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="java.lang.reflect.Type"/>
-    <fullyQualifiedTypeName name="com.google.gson.reflect.TypeToken"/>
-    <fullyQualifiedTypeName name="com.revature.models.ProductDTO"/>
-    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
-    <fullyQualifiedTypeName name="com.revature.models.User"/>
-    <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
-    <fullyQualifiedTypeName name="org.hibernate.Query"/>
     <fullyQualifiedTypeName name="org.hibernate.query.Query"/>
 </qualifiedTypeNameHistroy>

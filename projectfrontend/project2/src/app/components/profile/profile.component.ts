@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Address } from 'src/app/models/Address';
 import { ProductsService } from 'src/app/services/products.service';
@@ -17,6 +18,9 @@ export class ProfileComponent implements OnInit {
 
   public success: any;
   public update: any;
+  public reg_success: boolean = false; 
+  login_class: string = "";
+  login_msg: string = "";
 
   constructor(private ps: ProductsService) { }
 
@@ -31,28 +35,39 @@ export class ProfileComponent implements OnInit {
   email_address: string = this.ps.ownemail;
   addressId: number = 0;
   address: Address = {
-    id:this.ps.addressId,
-    address_1: '',
-    city: '',
-    state: '',
-    country: '',
-    postal_code: ''
+    id: this.ps.addressId,
+    address_1: this.ps.ownAddress,
+    city: this.ps.ownCity,
+    state: this.ps.ownState,
+    country: this.ps.ownCountry,
+    postal_code: this.ps.ownCode
   };
 
-  
-  updateUserAddress(): void {
-        console.log(this.address);
-        this.ps.updateAddress(this.address).subscribe(
-          (data:any) => {
-            this.update = data;
-            console.log("Successfully Updated Address")
-            console.log(this.update)
-          },
-          () => {
-            console.log(this.address);
-            console.log("Updating User Profile failed")
-          }
-        )
 
-      }
+  updateUserAddress(): void {
+    console.log(this.address);
+    this.ps.updateAddress(this.address).subscribe(
+      (data: any) => {},
+      this.handleError
+    )
+
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 200) {
+      console.log(error.status);
+      console.log("REGISTRATION SUCCESS");
+
+      this.reg_success = !this.reg_success;
+      this.login_class = "alert alert-success";
+      this.login_msg = "Address successfully updated";
+    } else {
+      console.log(error.status);
+      console.log("REGISTRATION UNSUCCESSFUL");
+
+      this.reg_success = !this.reg_success;
+      this.login_msg = "Address update was unsuccessful!";
+      this.login_class = "alert alert-danger";
+    }
+  }
 }
