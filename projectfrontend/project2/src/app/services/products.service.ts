@@ -13,7 +13,7 @@ import { Address } from '../models/Address';
 export class ProductsService {
 
   getAllProducts :Array<Product> = [];
-  ownId : any;
+  ownId : number =0;
   fn : any;
   ln : any;
   ownuser : any;
@@ -58,7 +58,9 @@ export class ProductsService {
 
   }
 
- 
+  getPurchasedProducts(id:number):Observable<Array<Product>>{
+    return this.http.get("http://localhost:3000/order/" + id) as Observable<Array<Product>>
+  }
 
 
 }

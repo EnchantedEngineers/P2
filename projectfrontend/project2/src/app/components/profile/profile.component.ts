@@ -21,7 +21,9 @@ export class ProfileComponent implements OnInit {
   constructor(private ps: ProductsService) { }
 
   ngOnInit(): void {
-
+    if (this.ps.ownId == 0){
+      window.location.href="http://localhost:4200/login";
+    }
   }
 
   username: string = this.ps.ownuser;
