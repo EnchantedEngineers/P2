@@ -45,7 +45,7 @@ export class CategoryStoutComponent implements OnInit {
 
         this.product = data; 
         let valueid = this.product.id1;
-        let valuequantity = this.product.available_quantity;
+        let valuequantity = this.product.available_quantity;  this.product.price = (this.product.price*0.9).toFixed(2);
         let index = this.ps.getAllProducts.findIndex(object => object.id1 === valueid);
         if (index === -1){
         if (valuequantity != 0){
