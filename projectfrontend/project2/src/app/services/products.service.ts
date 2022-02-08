@@ -29,6 +29,11 @@ export class ProductsService {
 
   constructor(private http:HttpClient) { }
 
+  updateAddress(address:Address):Observable<Address>{
+    return this.http.post("http://localhost:3000/address", address) as Observable<Address>;
+
+  }
+
   getProducts(id:number):Observable<Array<Product>>{
     return this.http.get("http://localhost:3000/product/category/" + id) as Observable<Array<Product>>
   }
@@ -52,6 +57,8 @@ export class ProductsService {
     return this.http.post("http://localhost:3000/product", getAllProducts) as Observable<Array<Product>>;
 
   }
+
+ 
 
 
 }
