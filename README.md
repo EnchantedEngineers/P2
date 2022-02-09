@@ -17,7 +17,7 @@ Users can purchase items on sale at a reduced price.
 ## Technologies Used
 - Javalin
 - Angular
-- Node - version 16.13.1
+- Node.js - version 16.13.1
 - GCP
 - PostgreSQL
 - Hibernate
