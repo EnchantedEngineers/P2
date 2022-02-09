@@ -12,30 +12,33 @@ The Enchanted Beers is an E-commerce website where users can
 - Add products on the cart
 - Checkout products from cart/remove the product
 - View purchase history
-- Return a product
-- Adding new product
 
 ## Getting Started
 
 ## How to Use
+<hr>
+###Prerequisites
+<hr> 
+-Have the latest version of nodejs, found at [nodejs.org](https://nodejs.org/en/download/) installed on your computer
+-Have Angular installed on your computer
+
+To use the application, clone the repository on your local machine. Before opening the project, run the npm install command Angular in your CLI by running the command npm install  
 
 ## Contributors
+<hr>
+-Kevin Olegario
+-Ifrah Karamat
+-Hassan Mohamed
+-Felix Chukwu
+-Eilese Cross
 
 ##License
 <hr>
-This project uses the following license: <a href="https://mit-license.org/>MIT License</a>
+This project uses the following license: [MIT License](https://mit-license.org/)
 
 <br>
 
-| Users          |  Inventory        | Order           | Sales History  | Return       | Shipment  | Login      | 
-|----------------|-------------------|---------------- |----------------|--------------|-----------|------------|
-| Username       | Product name      | Product id      | Order id       | Order id     | User id   | Username   |
-| Password       | Product id        | User id         | Sales date     | Return date  | Order id  | Password   |
-| First name     | Product category  | Order quantity  |                |              | Ship date |            |
-| Last name      | Product price     | Order price     |                |              |           |            |
-| User Id        | Product quantity  | Order id        |                |              |           |            |
-| Email address  |                   | Order date      |                |              |           |            |
-
+![image](https://user-images.githubusercontent.com/37522392/153290138-737154f0-87c6-4b9c-8eb0-641ea16d26cc.png)
 
 
 
