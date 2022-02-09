@@ -1,9 +1,28 @@
 # Enchanted Beers - Drink Responsibly
 
 ## Project Description
-The Enchanted Beers is an E-commerce website where users can 
+Enchanted Beers is an e-commerce website where customers can purchase beer products.
 
-##Technologies Used
+Users can create a new account, log in to the app, and update their user profile.
+
+Users can add available products to their shopping cart.
+
+Users can choose how many items to purchase, then either buy the items or remove them from their shopping cart.
+
+Users can purchase items on sale at a reduced price.
+
+
+![image](https://user-images.githubusercontent.com/37522392/153290138-737154f0-87c6-4b9c-8eb0-641ea16d26cc.png)
+
+## Technologies Used
+- Javalin
+- Angular
+- Node - version 16.13.1
+- GCP
+- PostgreSQL
+- Hibernate
+- Java
+- ngx-bootstrap
 
 ## Features
 - Login/registration
@@ -14,31 +33,57 @@ The Enchanted Beers is an E-commerce website where users can
 - View purchase history
 
 ## Getting Started
+- Have the latest version of nodejs, found at [nodejs.org](https://nodejs.org/en/download/) installed on your computer
+- Have Angular installed on your computer
 
 ## How to Use
-<hr>
-###Prerequisites
-<hr> 
--Have the latest version of nodejs, found at [nodejs.org](https://nodejs.org/en/download/) installed on your computer
--Have Angular installed on your computer
-
 To use the application, clone the repository on your local machine. Before opening the project, run the npm install command Angular in your CLI by running the command npm install  
+<hr>
+<br>
 
 ## Contributors
 <hr>
--Kevin Olegario
--Ifrah Karamat
--Hassan Mohamed
--Felix Chukwu
--Eilese Cross
 
-##License
+- Kevin Olegario
+- Ifrah Karamat
+- Hassan Mohamed
+- Felix Chukwu
+- Eilese Cross
+
+## License
 <hr>
+
 This project uses the following license: [MIT License](https://mit-license.org/)
 
-<br>
 
-![image](https://user-images.githubusercontent.com/37522392/153290138-737154f0-87c6-4b9c-8eb0-641ea16d26cc.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
