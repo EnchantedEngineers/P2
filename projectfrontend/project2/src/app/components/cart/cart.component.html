@@ -107,13 +107,16 @@
 <div class="col-lg-4 offset-lg-4">
     <div class="checkout">
         <ul>
-            <!-- <li class="subtotal">subtotal
-                <span> ${{totalPrice | number : '1.2-2' }}</span>
-            </li> -->
-            <li class="cart-total">Total
+            <li class="subtotal">subtotal
                 <span> ${{totalPrice | number : '1.2-2' }}</span>
             </li>
+            <li class="subtotal">tax(6.5%)
+                <span> ${{totalPrice*.065 | number : '1.2-2' }}</span>
+            </li>
+            <li class="cart-total">Total
+                <span> ${{totalPrice+totalPrice*.065 | number : '1.2-2' }}</span>
+            </li>
         </ul>
-        <a class="proceed-btn" (click)="checkingOut()">Checkout</a>
+        <a class="btn btn-1g btn-primary"(click)="checkingOut()">Checkout</a>
     </div>
 </div>

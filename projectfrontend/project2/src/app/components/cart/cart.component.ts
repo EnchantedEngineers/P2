@@ -97,7 +97,10 @@ export class CartComponent implements OnInit {
   }
 
   checkingOut():void{
-   
+   for(let n of this.product){
+     n.eachprice=n.eachprice*1.065;
+   }
+   console.log(this.product)
  
     this.ps.updateProduct(this.product).subscribe(
 
