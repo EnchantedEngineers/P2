@@ -13,6 +13,9 @@ export class LoginComponent implements OnInit {
 
   constructor(private ps: ProductsService) { }
 
+  login_shown: boolean = true;
+  login_msg: String = "";
+  login_class: String = "";
   activeClass=false;
 
   ngOnInit(): void {}
@@ -42,6 +45,11 @@ export class LoginComponent implements OnInit {
     this.ps.login(this.username, this.password).subscribe(
       (data:any)=> {
         this.success=data;
+
+        this.login_shown = !this.login_shown;
+        this.login_class = "alert alert-success";
+        this.login_msg = "Login Successful!";
+
         console.log("Successful Login")
         console.log(this.success)
         this.ps.ownId = this.success.id;
@@ -61,6 +69,10 @@ export class LoginComponent implements OnInit {
       },
       () => {
         console.log("Logging In Failed")
+
+        this.login_shown = !this.login_shown;
+        this.login_msg = "Login Failed. Incorrect Username or Password!";
+        this.login_class = "alert alert-danger";
       }
     )
   }
@@ -103,9 +115,18 @@ export class LoginComponent implements OnInit {
    }
    private handleError(error: HttpErrorResponse) {
     if (error.status === 200) {
+      this.login_shown = false;
+      this.login_class = "alert alert-success";
+      this.login_msg = "Registration Successful!";
+
       console.log(error.status);
-      console.log("REGISTRATION SUCCESS");
+      console.log("REGISTRATION SUCCESS");      
     } else {
+      // THIS FUNC NO LONGER WORKING
+      this.login_shown = !this.login_shown;
+      this.login_msg = "Username is not unique!";
+      this.login_class = "alert alert-danger";
+
       console.log(error.status);
       console.log("REGISTRATION UNSUCCESSFUL");
     }

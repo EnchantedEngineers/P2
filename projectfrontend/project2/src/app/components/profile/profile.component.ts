@@ -34,11 +34,11 @@ export class ProfileComponent implements OnInit {
   addressId: number = 0;
   address: Address = {
     id:this.ps.addressId,
-    address_1: '',
-    city: '',
-    state: '',
-    country: '',
-    postal_code: ''
+    address_1: this.ps.ownAddress,
+    city: this.ps.ownCity,
+    state: this.ps.ownState,
+    country: this.ps.ownCountry,
+    postal_code: this.ps.ownCode
   };
 
   

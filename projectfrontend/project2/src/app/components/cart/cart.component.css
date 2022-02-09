@@ -193,4 +193,16 @@
   display: block;
   text-align: center;
 }
+.btn-primary {
+  color: #fff;
+  background-color: #fa0;
+  border-color: #fa0;
+  font-size: 15px;
+  font-weight: bold;
+  background: #fa0;
+  text-transform: uppercase;
+  padding: 15px 25px 14px 25px;
+  display: block;
+  text-align: center;
+}
 
