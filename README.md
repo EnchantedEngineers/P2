@@ -1,17 +1,11 @@
-# Enchanted Store aka E-Store
+# Enchanted Beers - Drink Responsibly
 
-## Overview
+## Project Description
+The Enchanted Beers is an E-commerce website where users can 
 
-### This is an e-commerce site for users to buy our products. 
+##Technologies Used
 
-<br>
-
-#### Products
-- Vegetables/Fruits
-- Meat
-- Snacks
-
-#### Functionality
+## Features
 - Login/registration
 - Show user profile
 - Display products
@@ -20,6 +14,16 @@
 - View purchase history
 - Return a product
 - Adding new product
+
+## Getting Started
+
+## How to Use
+
+## Contributors
+
+##License
+<hr>
+This project uses the following license: <a href="https://mit-license.org/>MIT License</a>
 
 <br>
 
