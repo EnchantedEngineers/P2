@@ -37,7 +37,7 @@ Users can purchase items on sale at a reduced price.
 - Have Angular installed on your computer
 
 ## How to Use
-To use the application, clone the repository on your local machine. Before opening the project, run the npm install command Angular in your CLI by running the command npm install  
+To use the application, clone the repository on your local machine. Before opening the project, run the npm install command in your Angular CLI 
 <hr>
 <br>
 
